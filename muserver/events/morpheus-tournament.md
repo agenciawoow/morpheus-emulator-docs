@@ -4,6 +4,10 @@ A one-on-one single-elimination tournament in the Colosseum that the server runs
 
 ## What it is
 
+{% embed url="https://www.youtube.com/watch?v=XjHUO5kCdG4" %}
+What players see: the tournament panel opened from the Colosseum NPC.
+{% endembed %}
+
 Players follow everything in the **Colosseum panel**, opened by clicking the Colosseum NPC (Lorencia 131/134 by default). There is no HUD button. The panel works on every client platform and has six tabs:
 
 | Tab | What it shows |

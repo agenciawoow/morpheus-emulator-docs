@@ -8,6 +8,10 @@ Two optional programs. You only need them if you offer **browser play** (RelaySe
 
 ### What it does
 
+{% embed url="https://www.youtube.com/watch?v=Z2CNeffaRm4&t=13s" %}
+This is what the RelayServer enables: the full game running inside a browser tab.
+{% endembed %}
+
 Web browsers cannot open the raw TCP connections the game uses. The browser client connects to the RelayServer over **WebSocket**, and the RelayServer forwards the bytes unchanged to the ConnectServer or a GameServer. It has no game logic: it is a pipe.
 
 You need one mapping for the ConnectServer and one for each GameServer that browser players can enter.

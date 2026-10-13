@@ -3,6 +3,7 @@
 * [Morpheus Emulator](README.md)
 * [Getting started](getting-started.md)
 * [Feature overview](features.md)
+* [Videos](videos.md)
 * [Changelog](CHANGELOG.md)
 
 ## Tutorials

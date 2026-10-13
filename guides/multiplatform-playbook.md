@@ -70,6 +70,14 @@ Make this movement easy:
 
 ## Android
 
+{% embed url="https://www.youtube.com/watch?v=SwxIJgfAIU0" %}
+Android and PC playing together on the same server.
+{% endembed %}
+
+{% embed url="https://www.youtube.com/watch?v=7Ek_AiOnG2g" %}
+Super Camera 3D: the touch camera that makes the mobile game feel native.
+{% endembed %}
+
 **Strengths.** The full game, not a reduced version: on-screen joystick, skill ring, health and mana bars, minimap, quick potions, touch inventory and every game window, including chat, shop, map and warp. The app updates itself when opened. Party voice works on Android, so mobile parties can talk without another app.
 
 **Typical player.** The largest audience in many regions: casual players, returning players who played MU years ago, people who play in breaks and on the move.
@@ -141,6 +149,10 @@ Preview every mobile change before publishing: the UI Editor has **Mobile** and 
 ---
 
 ## Web browser
+
+{% embed url="https://www.youtube.com/watch?v=Z2CNeffaRm4&t=13s" %}
+Playing MU Online in Google Chrome: login, character selection and gameplay with nothing to install.
+{% endembed %}
 
 **Strengths.** MU opens in a tab with nothing to install: login, character selection and the world, with audio and the same protection as the installed client. Google login is available. Party voice works in the browser too.
 

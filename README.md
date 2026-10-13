@@ -15,6 +15,7 @@ to your first configuration change and your first event in a few minutes.
 |---|---|
 | [Getting started](getting-started.md) | What is in the package and your first steps |
 | [Feature overview](features.md) | Everything Morpheus Emulator delivers |
+| [Videos](videos.md) | Previews of the panel and the game on every platform |
 | [Changelog](CHANGELOG.md) | Main customs, features and the version history |
 | [Tutorials](tutorials/README.md) | Step-by-step: EventItemBag, custom items, maps, wings and pets |
 | [Guides](guides/README.md) | Profitable server methodology, multi-platform playbook and monetization catalog |

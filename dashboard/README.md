@@ -10,6 +10,10 @@ The panel is available in **Português (Brasil)**, **English**, **Español**, **
 
 ## What you can do
 
+{% embed url="https://www.youtube.com/watch?v=CCeSK5WmXz8&t=39s" %}
+Dashboard preview: a tour of the control panel — server status, service control, file editing and the visual editors.
+{% endembed %}
+
 | Area | What it is for | Page |
 |---|---|---|
 | Dashboard | Live CPU / memory / disk, players online, service control, GameServer actions, events and live console | [Server dashboard](server-dashboard.md) |

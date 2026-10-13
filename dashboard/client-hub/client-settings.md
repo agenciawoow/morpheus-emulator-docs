@@ -15,6 +15,10 @@ For the meaning of each setting, see the MuServer reference: [Client-side custom
 
 ## Tabs and groups
 
+{% embed url="https://www.youtube.com/watch?v=2So8XQk4BZc" %}
+The NPC panels you switch on with the WebView windows options (Mobile tab).
+{% endembed %}
+
 | Tab | Groups |
 |---|---|
 | **Connection** | **Connection**: the connection settings – license ID, customer name, IP address and port, client version and serial. |

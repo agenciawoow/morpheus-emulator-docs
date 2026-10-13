@@ -237,6 +237,10 @@ Blocks players who repeat the same chat message. After too many identical messag
 
 ## MU Helper Offline
 
+{% embed url="https://www.youtube.com/watch?v=uH3QRCLKqJ8" %}
+MU Helper in action: set up the hunt, then let the character keep farming after the player closes the game.
+{% endembed %}
+
 ### What it is
 
 The "OFF HELPER" button: the character keeps hunting with the player's own MU Helper settings (attack skill, potion %, buffs) after the game is closed, like `/offattack` but configured from the MU Helper panel.

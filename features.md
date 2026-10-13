@@ -18,6 +18,10 @@ This page explains what each part brings to your server. For the full list of sy
 
 ## One server, every platform
 
+{% embed url="https://www.youtube.com/watch?v=SwxIJgfAIU0" %}
+PC and mobile in the same world: the Android client playing alongside the Windows client on the same server.
+{% endembed %}
+
 These are not six different games. It is the same server, the same account and the same character. A player on a phone joins the same party as a player on a PC.
 
 | Platform | Highlights |
@@ -37,6 +41,10 @@ On every platform:
 ## Flagship systems
 
 ### Offline MU Helper
+
+{% embed url="https://www.youtube.com/watch?v=uH3QRCLKqJ8" %}
+MU Helper preview: configuring automatic hunting and keeping the character farming, on every platform.
+{% endembed %}
 
 The player closes the game and the character keeps hunting. It is the feature that best retains adult players who cannot leave a PC running. You control the duration, minimum level, experience rate and auto potion and buff delays per account level. See [Server features](muserver/customs/server-features.md).
 
@@ -61,6 +69,10 @@ Players talk by voice inside the game, on PC, Android and browser, with no Disco
 The player's character shows up on their Discord profile with your server's name. Every connected player advertises your server to their friend list, at no cost.
 
 ## Morpheus Tournament: the Colosseum
+
+{% embed url="https://www.youtube.com/watch?v=XjHUO5kCdG4" %}
+Morpheus Tournament UI preview: bracket, matches, betting, ranking, rules and history tabs.
+{% endembed %}
 
 A one-on-one single-elimination tournament that the server runs entirely on its own. It opens registration, draws the bracket, calls the fighters, judges every match, builds the ranking and hands out the prize. The GM does not have to referee anything.
 
@@ -176,6 +188,18 @@ There are 88 registered commands, each with its own permission and requirements.
 32 events, each running on a schedule, by GM command or from a single click in the control panel. Rewards and drops are configured event by event, and players see an on-screen announcement when an event starts. See the event list in the [Changelog](CHANGELOG.md#events).
 
 ## Rebuilt interface
+
+{% embed url="https://www.youtube.com/watch?v=2So8XQk4BZc" %}
+The new NPC system: NPC shops and dialogs as modern panels, the same on PC, mobile and web.
+{% endembed %}
+
+{% embed url="https://www.youtube.com/watch?v=7Ek_AiOnG2g" %}
+Super Camera 3D on mobile: free camera rotation and zoom with touch controls.
+{% endembed %}
+
+{% embed url="https://www.youtube.com/watch?v=RsgiPorKIeM" %}
+My Account: the in-game account panel — change password, change PIN, last login and the anti-hack center.
+{% endembed %}
 
 - Inventory, guild, party, character, pet and quest rebuilt as new panels, with the same look on all platforms.
 - Personal shop, command window and NPC dialogs redesigned.
