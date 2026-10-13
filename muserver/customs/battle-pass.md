@@ -20,8 +20,8 @@ The Battle Pass has **two switches, and both must be on**. With only one of them
 | File | Key | Default (shipped) | Meaning |
 |---|---|---|---|
 | `GameServer/Data/GameServerInfo - Custom.dat` | `CustomBattlePassSwitch` | `1` (code default `0`) | Server half of the switch. |
-| `Tools/MainInfo/MainInfo.ini`, section `[Custom]` | `CustomBattlePassSwitch` | `1` | Client half of the switch, packed into the client. |
-| `Tools/MainInfo/MainInfo.ini` | `EnableMenuCustomBattlePass` | `1` | Shows the Battle Pass in the HUD menu grid. |
+| Client settings (Client Hub), section `[Custom]` | `CustomBattlePassSwitch` | `1` | Client half of the switch, published to players from the Client Hub. |
+| Client settings (Client Hub) | `EnableMenuCustomBattlePass` | `1` | Shows the Battle Pass in the HUD menu grid. |
 | `GameServerInfo - Custom.dat` | `CustomBattlePassPaymentType` | `1` | How plans are paid. `1` = in-game coins. `2` = your website wallet (credits). |
 | `GameServerInfo - Custom.dat` | `CustomBattlePassCoinID` | `1` | Coin charged when `PaymentType = 1`: `1` = WCoinC, `2` = WCoinP, `3` = GoblinPoint. |
 | `GameServerInfo - Custom.dat` | `CustomBattlePassWalletID` | `0` | Which website wallet is charged when `PaymentType = 2`. Ignored with `PaymentType = 1`. |
@@ -241,9 +241,9 @@ end
 end
 ```
 
-## Client file to match
+## Client settings to match
 
-* `Tools/MainInfo/MainInfo.ini` `[Custom]` `CustomBattlePassSwitch = 1` and `EnableMenuCustomBattlePass = 1`. Changing them requires repacking and redistributing the client.
+* Client settings `[Custom]` `CustomBattlePassSwitch = 1` and `EnableMenuCustomBattlePass = 1`, in [Client Hub → Client settings](../../dashboard/client-hub/client-settings.md). Changes reach players only once [published to players from the Client Hub](../../dashboard/client-hub/publishing-updates.md).
 * Custom prize art (`Icon = "battlepass/<name>"`) must be shipped to players with the client update. A missing file shows a generic icon.
 
 ## Commands related
@@ -253,7 +253,7 @@ There is no player command: the pass opens from its button. Admin: `/reload cust
 ## Pitfalls
 
 * **A malformed file kills the GameServer even with the switch off** (see the danger box). Never add a column to an existing section; new fields always go in a new section.
-* Both switches must be on (`GameServerInfo - Custom.dat` and `MainInfo.ini`). The client logs which one failed.
+* Both switches must be on (`GameServerInfo - Custom.dat` and the client settings). The client logs which one failed.
 * When the season `End` date passes, the pass stops progressing until you set `ActiveSeason` to the next season and reload. The log says which registered season covers today's date.
 * A season that has not started yet opens in the window but gives nothing until its `Start`.
 * Check the XP curve against `XpDailyCap` and the season length before going live: the sum of the curve decides whether players can finish.
@@ -269,4 +269,4 @@ There is no player command: the pass opens from its button. Admin: `/reload cust
 * `/reload custom` re-reads `CustomBattlePass.txt`, the active season file and the `CustomBattlePass*` keys. Configuration is reset and re-read; player progress is kept. A broken file at this point stops the GameServer, so test first.
 * `/reload lang` re-reads the texts (indexes 950..999 and the season range).
 * `/reload common` re-reads `WriteBattlePassLog`.
-* `MainInfo.ini` changes need a client repack and redistribution.
+* Client settings changes have no hot reload: they must be [published to players from the Client Hub](../../dashboard/client-hub/publishing-updates.md).

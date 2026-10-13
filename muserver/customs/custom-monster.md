@@ -72,7 +72,7 @@ Summoned monsters appear around the dead monster and disappear after 30 minutes 
 
 This server file only changes existing monster classes, so it needs no client change.
 
-A completely new monster (new model) is a different job: it needs a new class in `Data/Monster/Monster.txt` and, on the client, `Tools/MainInfo/Local/CustomMonster.txt` (model, size, folder) plus `CustomMonsterRenderMesh.txt` (render effects). Despite the same name, the client `CustomMonster.txt` has a completely different format. See [Client custom files](../client/custom-files.md).
+A completely new monster (new model) is a different job: it needs a new class in `Data/Monster/Monster.txt` and, on the client, the client custom files `CustomMonster.txt` (model, size, folder) and `CustomMonsterRenderMesh.txt` (render effects), edited in the Client Hub. Despite the same name, the client `CustomMonster.txt` has a completely different format. See [Client custom files](../client/custom-files.md).
 
 ## Commands related
 
@@ -93,4 +93,4 @@ A completely new monster (new model) is a different job: it needs a new class in
 
 * `/reload custom` re-reads `Data/Custom/CustomMonster.txt`. Rewards, messages and experience apply at once; HP, damage and defense apply to monsters that spawn afterwards.
 * `/reload monster` respawns monsters so the new stats take effect everywhere.
-* Client files (`Local/CustomMonster.txt`, `CustomMonsterRenderMesh.txt`) never hot-reload: repack and redistribute the client.
+* Client custom files (`CustomMonster.txt`, `CustomMonsterRenderMesh.txt`) never hot-reload: they must be [published to players from the Client Hub](../../dashboard/client-hub/publishing-updates.md).

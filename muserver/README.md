@@ -13,7 +13,6 @@ The MuServer is the set of programs and configuration files that run your Morphe
 | **GameServerCS** | `GameServerCS/` | A GameServer built for the Castle Siege maps (Castle Siege, Land of Trials, Crywolf, Barracks, Refuge, Loren Market). | Yes (by map move) |
 | **RelayServer** | `RelayServer/` | Bridges browser players (WebSocket) to the ConnectServer and GameServer (TCP). Only needed for browser play. | Yes (browser only) |
 | **VoiceServer** | `VoiceServer/` | Party voice chat. Only needed if party voice is on. | Yes (voice only) |
-| **MHPServer** | `MHPServer/` | Anti-hack companion server for the game client. | Yes |
 
 Detailed pages:
 
@@ -21,7 +20,6 @@ Detailed pages:
 - [DataServer](servers/dataserver.md)
 - [JoinServer](servers/joinserver.md)
 - [RelayServer and VoiceServer](servers/relay-and-voice.md)
-- [MHPServer](servers/mhpserver.md)
 - [GameServer](gameserver/README.md) and [GameServerCS](gameserver/castle-siege-server.md)
 
 ## How they connect
@@ -47,7 +45,6 @@ Start the programs in this order and wait until each window shows it is listenin
 4. **GameServer** (all of them)
 5. **GameServerCS**
 6. **RelayServer** and **VoiceServer** (if you use browser play or party voice)
-7. **MHPServer** (if you use it)
 
 Stop them in the reverse order. Always close GameServers first so characters are saved through the DataServer.
 
@@ -66,7 +63,6 @@ MuServer/
 ├── GameServerCS/    GameServer.exe    + Data/ (its own 7 "GameServerInfo - *.dat" files)
 ├── RelayServer/     RelayServer.exe   + Data/RelayServer.ini
 ├── VoiceServer/     VoiceServer.exe   + Data/VoiceServer.ini
-├── MHPServer/       MHPServer.exe, MHPServer.ini, BlackList.txt + Data/
 └── Data/            game data shared by every GameServer
     ├── Custom/  Event/  EventItemBag/  Item/  Monster/  MonsterSetBase/
     ├── Move/  Quest/  Shop/  Skill/  Util/  Lang/  Hack/  Terrain/ ...
@@ -110,7 +106,7 @@ The reload modules are listed in [GameServer overview](gameserver/README.md#relo
 | Section | What you find there |
 |---|---|
 | [File format basics](file-format-basics.md) | The syntax rules shared by all files |
-| [Servers](servers/connectserver.md) | ConnectServer, DataServer, JoinServer, Relay, Voice, MHP |
+| [Servers](servers/connectserver.md) | ConnectServer, DataServer, JoinServer, Relay, Voice |
 | [GameServer](gameserver/README.md) | The 7 `GameServerInfo - *.dat` files key by key, Castle Siege server, multiple GameServers, languages |
 | [Game data](data/README.md) | Items, monsters, spawns, drops, shops, moves, quests in root `Data/` |
 | [Events](events/README.md) | Every event: switches, schedules and rewards |

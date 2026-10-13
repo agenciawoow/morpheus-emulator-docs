@@ -12,7 +12,7 @@ The catalog shown to the player is the intersection of two files:
 
 | Side | File | Decides |
 |---|---|---|
-| Client | `MainInfo/Local/CustomMorpheusShop.txt` | **Which** items appear, in which tab, and how the 3D preview is framed |
+| Client | Client custom file `CustomMorpheusShop.txt` (Client Hub) | **Which** items appear, in which tab, and how the 3D preview is framed |
 | Server | `Data/Custom/CustomMorpheusShop.txt` | **Prices**, option prices, option limits, discounts and texts |
 
 An item listed on the client without a price on the server does not show a price and cannot be bought. A priced item that is not listed on the client never appears. See [client custom files](../client/custom-files.md) for the client file.
@@ -26,11 +26,11 @@ The Morpheus control panel has a visual editor for this catalog.
 | File | Key | Default | Meaning |
 |---|---|---|---|
 | `GameServer/Data/GameServerInfo - Custom.dat` | `CustomMorpheusShopSwitch` | `1` | `1` = purchases go through the Morpheus Shop. `0` = every purchase is refused (result 4) and the legacy Cash Shop is used. |
-| `Tools/MainInfo/MainInfo.ini` (client) | `CustomMorpheusShopSwitch` | `1` | `1` = the client opens the new shop window instead of the legacy one. |
-| `Tools/MainInfo/MainInfo.ini` (client) | `EnableMorpheusShopCustomOptions` | `1` | `1` = clicking Buy opens the customization popup (sliders for Level/Luck/Skill/Add/380/Exc/Socket/Harmony). `0` = buys the base item with no adjustable options. |
+| Client settings (Client Hub) | `CustomMorpheusShopSwitch` | `1` | `1` = the client opens the new shop window instead of the legacy one. |
+| Client settings (Client Hub) | `EnableMorpheusShopCustomOptions` | `1` | `1` = clicking Buy opens the customization popup (sliders for Level/Luck/Skill/Add/380/Exc/Socket/Harmony). `0` = buys the base item with no adjustable options. |
 
 {% hint style="warning" %}
-Both switches (server `Custom.dat` and client `MainInfo.ini`) must be `1`. The server file is always loaded, even with the switch at `0`, so errors in it are logged either way.
+Both switches (server `Custom.dat` and the client settings) must be `1`. The server file is always loaded, even with the switch at `0`, so errors in it are logged either way.
 {% endhint %}
 
 `CustomShopMessageBox` (also in `Custom.dat`) is a different feature: a confirmation box for **NPC shop** purchases. See [Shop MessageBox](server-features.md#shop-messagebox).
@@ -110,7 +110,7 @@ The discount is read and sent to the shop window with the catalog, but in the cu
 
 If a key is missing in the player's language, the client falls back to `en`.
 
-### Client file - `MainInfo/Local/CustomMorpheusShop.txt`
+### Client file - `CustomMorpheusShop.txt`
 
 A single list (no sections) ending with `end`:
 
@@ -177,9 +177,9 @@ None. The shop is opened from the client interface.
 - `MaxSetItem` = socket count and `MaxSocket` = harmony (see Section 2). Leaving `MaxSocket` at `0` blocks harmony on that range.
 - Section 3 discounts are currently not applied (neither displayed nor charged).
 - Ranges are checked in file order; put specific ranges before broad ones.
-- The client list is baked into the client package: changing it requires repacking and redistributing the client.
+- The client list is part of the client data: changing it requires publishing a client update from the Client Hub.
 
 ## Reload module
 
 - Server file and `CustomMorpheusShopSwitch`: `/reload custom` (admin). The catalog is rebuilt; players with the shop open receive the new catalog on their next request.
-- Client file (`MainInfo/Local/CustomMorpheusShop.txt`) and `MainInfo.ini` keys: never hot-reload. Rebuild the client package and redistribute it.
+- Client custom file `CustomMorpheusShop.txt` and the client settings keys: never hot-reload. They must be [published to players from the Client Hub](../../dashboard/client-hub/publishing-updates.md).

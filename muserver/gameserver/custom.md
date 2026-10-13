@@ -252,7 +252,7 @@ Seasonal pass with free and premium tracks. Page: [Battle Pass](../customs/battl
 
 | Key | Default | Values | Description |
 |---|---|---|---|
-| `CustomBattlePassSwitch` | 0 | 0, 1 | `1` = Battle Pass on. **Half of the switch**: the client must also have `CustomBattlePassSwitch = 1` in `MainInfo.ini` `[Custom]`, or the button does not appear. |
+| `CustomBattlePassSwitch` | 0 | 0, 1 | `1` = Battle Pass on. **Half of the switch**: the client must also have `CustomBattlePassSwitch = 1` in the client settings `[Custom]` (**Client Hub → Client settings**), or the button does not appear. |
 | `CustomBattlePassPaymentType` | 1 | 1, 2 | How the premium pass is paid. `1` = in-game coins (see `CustomBattlePassCoinID`). `2` = the web wallet set by `CustomBattlePassWalletID`. |
 | `CustomBattlePassCoinID` | 1 | 1, 2, 3 | With payment type 1: `1` = WCoinC, `2` = WCoinP, `3` = Goblin Points. Zen is not accepted. |
 | `CustomBattlePassWalletID` | 0 | number | With payment type 2: the wallet to charge. |

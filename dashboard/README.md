@@ -17,7 +17,7 @@ The panel is available in **Português (Brasil)**, **English**, **Español**, **
 | Files | Full text editor for the server folders, with validation and compare | [File editor](file-editor.md) |
 | Configuration | Ready-made forms for the main `.dat` / `.ini` settings | [Configuration forms](configuration-forms.md) |
 | Editors | Visual editors: NPC Shop, Spot, Cash Shop (X), Morpheus Shop, Battle Pass, EventItemBag | [Visual editors](editors/README.md) |
-| Client Hub | Client files, GetMainInfo, UI Editor and publishing updates to players | [Client Hub](client-hub/README.md) |
+| Client Hub | Client files, Client settings, UI Editor and publishing updates to players | [Client Hub](client-hub/README.md) |
 | Logs & Audit | Who changed what, and when | [Logs and audit](logs-and-audit.md) |
 | Server logs | Read the MuServer log files from the browser | [Server logs](server-logs.md) |
 | AI assistant | Ask questions about your files and settings | [AI assistant](ai-assistant.md) |
@@ -51,7 +51,7 @@ Below the card is the navigation menu.
 | **Files** | – |
 | **Configuration** | – |
 | **Licenses** | – |
-| **Client Hub** | **Client Files**, **GetMainInfo**, **UI Editor**, **Publish updates** |
+| **Client Hub** | **Client Files**, **Client settings**, **UI Editor**, **Publish updates** |
 | **Editors** | **NPC Shop editor**, **Spot editor**, **Cash Shop (X)**, **Morpheus Shop**, **Battle Pass**, **EventItemBag Editor** |
 | **Logs & Audit** | – |
 | **Server logs** | – |

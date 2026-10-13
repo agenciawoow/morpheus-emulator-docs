@@ -1,15 +1,15 @@
-# GetMainInfo
+# Client settings
 
-**GetMainInfo** is the editor for your client's main configuration. It replaces editing `MainInfo.ini` / `MainConnect.ini` by hand and running the encoder tool yourself: you change settings in forms, save, and **Publish update** builds the two client configuration files (`Morpheus.emu` and `morph.pak`) and puts them in the publish queue.
+**Client settings** is the editor for your client's main configuration: the **client settings** (feature switches, interface, menus, mobile, Discord), the **connection settings** (license, server address, client version) and the **client custom files**. You change settings in forms, save, and **Publish update** builds the client configuration and puts it in the publish queue.
 
-Open **Client Hub → GetMainInfo**.
+Open **Client Hub → Client settings**.
 
-For the meaning of each setting, see the MuServer reference: [Client files](../../muserver/client/README.md).
+For the meaning of each setting, see the MuServer reference: [Client-side customs](../../muserver/client/README.md) and the [Client settings reference](../../muserver/client/client-settings-reference.md).
 
 ## Page layout
 
 - **Tabs**: **Connection**, **Interface**, **Custom**, **Mobile**, **Discord**, plus **Custom loaders** and **Morpheus Shop (server)**.
-- **Search box**: *Search option: name, INI key or initials (e.g. "rus" = RankUserSwitch)*. Results are shown across all tabs (`3 options found across all tabs`) with **open tab** links.
+- **Search box**: *Search option: name, key or initials (e.g. "rus" = RankUserSwitch)*. Results are shown across all tabs (`3 options found across all tabs`) with **open tab** links.
 - **Action buttons**: **Reload settings**, **Save**, **Publish update**.
 - Badges: **unsaved changes** and `N errors`.
 
@@ -17,12 +17,12 @@ For the meaning of each setting, see the MuServer reference: [Client files](../.
 
 | Tab | Groups |
 |---|---|
-| **Connection** | **Connection (MainConnect.ini)**: license ID, customer name, IP address and port, client version and serial. |
+| **Connection** | **Connection**: the connection settings – license ID, customer name, IP address and port, client version and serial. |
 | **Interface** | **Screen and interface**, **Inventory and warehouse**, **Client**, **Client features**, **Plugins**, **Maximum attack speed (per class)**, **Scenes, logo and mixes**. |
 | **Custom** | **User rank**, **Custom menu**, **Windows**, **Personal store**, **Offline MU Helper**, **Extra warehouses per account type**, feature switches (Morpheus Shop, Battle Pass, map markers…), **Social login**. |
 | **Mobile** | **Mobile interface (Android / iOS / web)**, mobile buttons, **WebView windows**. |
 | **Discord** | **Discord**, **Discord application**, **Buttons (up to 2)**. |
-| **Custom loaders** | Client "custom" files by category (Items, Worlds/Others, Wings/Pets, Effects, Renders), edited as tables or text. |
+| **Custom loaders** | The client custom files and client effect files by category (Items, Worlds/Others, Wings/Pets, Effects, Renders), edited as tables or text. See [Client custom files](../../muserver/client/custom-files.md). |
 | **Morpheus Shop (server)** | The server shop catalog (prices, options, limits…) – the [Morpheus Shop editor](../editors/morpheus-shop.md) is the friendlier way to edit it. |
 
 Hover a field to see its hint. Some examples:
@@ -47,13 +47,13 @@ Invalid fields are marked in red with a message such as **Enter a whole number.*
 
 ## Saving
 
-Click **Save**. Message: **Saved to MainInfo.ini / MainConnect.ini.** Saving only stores the settings on your server — players don't see anything yet.
+Click **Save**. A confirmation message appears. Saving only stores the settings on your server — players don't see anything yet.
 
 ## Publishing the configuration
 
 1. Click **Publish update**.
 2. Confirm **Prepare a client configuration update?** with **Prepare**. If you had unsaved changes they are saved first.
-3. The panel builds `Morpheus.emu` and `morph.pak`. The **Update prepared** box shows the size of each file and the main executable check.
+3. The panel builds the client configuration. The **Update prepared** box shows the size of each generated file and the main executable check.
 4. Open **Publish updates** (upload icon in the top bar) and publish — the configuration goes out together with any other pending file. See [Publishing updates](publishing-updates.md).
 
 {% hint style="info" %}
@@ -62,9 +62,9 @@ If you see **main.exe self-check disabled**, the client executable was not found
 
 ## Reloading and conflicts
 
-- **Reload settings** reads the configuration files again and shows any manual changes (*Settings reloaded: the files had changes and the values were updated.* or *…no changes in the files.*). With unsaved changes you're asked **Reload and discard changes?** first.
-- If the files were changed on the server while you were editing, a banner offers the **reload** option (discard your edits) or **Overwrite with mine**. See [Validation and conflicts](../validation-and-conflicts.md#in-getmaininfo).
+- **Reload settings** reads the saved settings again and shows any manual changes (*Settings reloaded: the files had changes and the values were updated.* or *…no changes in the files.*). With unsaved changes you're asked **Reload and discard changes?** first.
+- If the settings were changed on the server while you were editing, a banner offers the **reload** option (discard your edits) or **Overwrite with mine**. See [Validation and conflicts](../validation-and-conflicts.md#in-client-settings).
 
 {% hint style="danger" %}
-**Client configuration incomplete — Publish Update will not work.** A file of the client generation tool is missing on your server. Contact support.
+**Client configuration incomplete — Publish Update will not work.** A component needed to build the client configuration is missing on your server. Contact support.
 {% endhint %}

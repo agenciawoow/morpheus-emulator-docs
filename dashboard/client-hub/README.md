@@ -9,7 +9,7 @@ For what each client file controls, see the MuServer reference: [Client files](.
 | Entry | Page | Use it to |
 |---|---|---|
 | **Client Files** | [Client files](client-files.md) | Edit the server list, game texts, items, `/move` list, tooltips, mix recipes, and upload other client files. |
-| **GetMainInfo** | [GetMainInfo](getmaininfo.md) | Edit the client configuration (connection, interface, custom menus, mobile, Discord) and build it. |
+| **Client settings** | [Client settings](client-settings.md) | Edit the client configuration (connection, interface, custom menus, mobile, Discord) and the client custom files, and build it. |
 | **UI Editor** | [UI Editor](ui-editor.md) | Customise and preview the client screens (launcher, login, character select, shop…) on PC and mobile. |
 | **Publish updates** | [Publishing updates](publishing-updates.md) | Review the queue of edited files and publish them to players. |
 
@@ -22,7 +22,7 @@ For what each client file controls, see the MuServer reference: [Client files](.
 Edit a file  →  Save  →  added to the pending queue  →  Publish  →  players' launcher downloads it
 ```
 
-1. **Edit and save** in Client Files, GetMainInfo, the UI Editor or a visual editor (Cash Shop, Morpheus Shop). Saving writes the file on your server and marks it as **pending**.
+1. **Edit and save** in Client Files, Client settings, the UI Editor or a visual editor (Cash Shop, Morpheus Shop). Saving writes the file on your server and marks it as **pending**.
 2. **Review** the queue in **Publish updates**. The upload icon in the top bar shows how many files are waiting (`3 edited files awaiting publish`).
 3. **Publish**. The panel packages the changed files and uploads them to your update hosting.
 4. **Players update automatically.** The next time a player opens the launcher, it downloads only what changed. If a player's connection drops, the download resumes from where it stopped.
@@ -43,7 +43,7 @@ Many features have two halves. Make sure you update both:
 | Mix recipes | Server mix configuration | Mix recipes via Client Files + publish |
 | Cash Shop | Saved together by the [Cash Shop editor](../editors/cash-shop.md) + **Reload cashshop** | **Publish to client** in the same editor |
 | Morpheus Shop item list | [Morpheus Shop editor](../editors/morpheus-shop.md) | **Encode + Publish to client** |
-| Feature switches (Morpheus Shop, Battle Pass…) | `GameServerInfo - Custom.dat` | GetMainInfo + publish |
+| Feature switches (Morpheus Shop, Battle Pass…) | `GameServerInfo - Custom.dat` | Client settings + publish |
 
 ## Tips
 

@@ -6,7 +6,7 @@
 
 * Players press **H** to open the event time window. It lists each event and invasion with its next start time, or shows it as running.
 * About 5 minutes before an event or invasion, and again when it starts, players get a notice with its name.
-* Those names come from this file. The window's icons and the client-side names come from the client file `Local/EventNameDisplay.txt`.
+* Those names come from this file. The window's icons and the client-side names come from the client custom file `EventNameDisplay.txt` (Client Hub).
 
 This file holds only names. The real start times are in each event's own file (`BloodCastle.dat`, `InvasionManager.dat`, ...).
 
@@ -94,16 +94,16 @@ None. This file only names things.
 
 ## Pitfalls
 
-* **Server and client must use the same indexes.** The client file `Local/EventNameDisplay.txt` (in your MainInfo customs) has the same section 0 and section 1 with `Index "Name" "IconName"`. If an index is missing or different on one side, the H window shows the wrong name or icon. See [Client custom files](../client/custom-files.md).
+* **Server and client must use the same indexes.** The client custom file `EventNameDisplay.txt` (in **Client Hub → Client settings**) has the same section 0 and section 1 with `Index "Name" "IconName"`. If an index is missing or different on one side, the H window shows the wrong name or icon. See [Client custom files](../client/custom-files.md).
 * The shipped files do not match for invasions: the server lists invasions 0 to 15, the client lists only 0 to 9 and its 9 is "Medusa2" (server: "Mini Boss Balrog"). Add 9 to 15 to the client file with the server's names.
 * A global event (section 0) with no row here gets no "5 minutes" / "started" notice, even if it is scheduled.
 * An invasion with schedule rows but no name here still shows in the window, named "No Name" and without its countdown.
 * Keys of 50 or more are ignored.
-* Client-side changes need the client to be repacked and sent to players. Server-side changes do not.
+* Client-side changes must be [published to players from the Client Hub](../../dashboard/client-hub/publishing-updates.md). Server-side changes do not.
 
 ## Reload module
 
-`/reload event` re-reads `EventName.dat`. Changes to `CustomEventTimeSwitch` need `/reload custom`. The client file `EventNameDisplay.txt` never reloads: rebuild and redistribute the client.
+`/reload event` re-reads `EventName.dat`. Changes to `CustomEventTimeSwitch` need `/reload custom`. The client file `EventNameDisplay.txt` never reloads: publish the client update from the Client Hub.
 
 {% hint style="warning" %}
 `/reload event` also resets every event's schedule and cuts short any running event. Reload between events.

@@ -37,8 +37,8 @@ INI format, one section `[GameServerInfo]`. See [GameServer overview](README.md#
 | `ServerCode` | 0 | 0 to 199 | Code of this GameServer. Must match its row in `ConnectServer/Data/ServerList.dat` (group × 20 + code) and in `Data/MapServerInfo.dat`. **Restart.** |
 | `ServerLock` | 0 | 0 to 3 | Minimum account level allowed to log in. `0` = everyone, `1` = VIP 1 and above, `2` = VIP 2 and above, `3` = VIP 3 only. |
 | `ServerPort` | 0 | 1 to 65535 | TCP port players connect to. Must match `ServerPort` in `ServerList.dat`. **Restart.** |
-| `ServerVersion` | (empty) | `X.XX.XX` | Client version this server accepts. Must match your client (and `ClientVersion` in `MHPServer.ini`). **Restart.** |
-| `ServerSerial` | (empty) | 16 characters | Client serial this server accepts. Must match your client (and `ClientSerial` in `MHPServer.ini`). Keep it private. **Restart.** |
+| `ServerVersion` | (empty) | `X.XX.XX` | Client version this server accepts. Must match your client. **Restart.** |
+| `ServerSerial` | (empty) | 16 characters | Client serial this server accepts. Must match your client. Keep it private. **Restart.** |
 | `ServerMaxUserNumber` | 0 | 1 to the build limit | Maximum players online on this GameServer. |
 | `ServerMinLevel` / `ServerMaxLevel` | 0 / 0 | level, 0 = no limit | Characters below the minimum or above the maximum level cannot enter this server. |
 | `ServerMinReset` / `ServerMaxReset` | 0 / 0 | resets, 0 = no limit | Same, for resets. |
@@ -360,7 +360,7 @@ The in-game MU Helper (online).
 
 ## MU HELPER OFFLINE
 
-The **OFF HELPER** button: the character keeps hunting with its MU Helper settings after the game is closed, like offline attack. The client button is controlled separately by `HelperActiveOfflineSystem` in the client's `MainInfo.ini`; both must be on. See [Client](../client/README.md).
+The **OFF HELPER** button: the character keeps hunting with its MU Helper settings after the game is closed, like offline attack. The client button is controlled separately by `HelperActiveOfflineSystem` in the client settings (**Client Hub → Client settings**); both must be on. See [Client](../client/README.md).
 
 | Key | Default | Values | Description |
 |---|---|---|---|
@@ -607,7 +607,7 @@ HelperOfflineTime_AL3 = 0
 
 - **Missing keys are 0.** Removing a line does not restore a sensible value: `MonsterLifeRate`, `AddExperienceRate_AL*`, `ItemDropRate_AL*` and most rates become 0 (no life, no experience, no drops).
 - **`MaxIpConnection = 0` blocks everyone.** It is not "unlimited".
-- **Identity must match everywhere:** `ServerCode` with `ServerList.dat` and `MapServerInfo.dat`; `ServerPort` with `ServerList.dat`; `ServerVersion`/`ServerSerial` with the client and `MHPServer.ini`; `PartyVoiceTokenSecret` with `VoiceServer.ini`.
+- **Identity must match everywhere:** `ServerCode` with `ServerList.dat` and `MapServerInfo.dat`; `ServerPort` with `ServerList.dat`; `ServerVersion`/`ServerSerial` with the client; `PartyVoiceTokenSecret` with `VoiceServer.ini`.
 - **Running two GameServers:** each needs a different `ServerCode` and `ServerPort`. See [Multiple GameServers](multiple-gameservers.md).
 - **Startup-only keys** (marked restart) do nothing until you restart, even after `/reload common`.
 - **Do not put comments after text values** (`PartyVoiceWsUrl`, `ServerName`): they become part of the value.

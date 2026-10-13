@@ -6,7 +6,7 @@ For the meaning of every field in the files, see the MuServer reference: [Battle
 
 ## How the Battle Pass works
 
-1. **Turn on both switches** – `CustomBattlePassSwitch` in `GameServerInfo - Custom.dat` (server) and in MainInfo (client, see [GetMainInfo](../client-hub/getmaininfo.md)). With only one on, the button does not show.
+1. **Turn on both switches** – `CustomBattlePassSwitch` in `GameServerInfo - Custom.dat` (server) and in the client settings (client, see [Client Hub → Client settings](../client-hub/client-settings.md)). With only one on, the button does not show.
 2. **Pick the season** – the engine lists the seasons; only the **active** one is loaded. Each season has its own file with XP curve, prizes, track, missions and calendar.
 3. **Build the prize catalog** – each prize has a number. It can be an item, Zen, coins, XP or a buff. Track, missions and calendar only point to that number.
 4. **Fill the track** – one prize per level in the free row and another in the premium row. Mark milestones with the star.
@@ -17,7 +17,7 @@ For the meaning of every field in the files, see the MuServer reference: [Battle
 ## Screen layout
 
 - **Top bar**: Save → Reload bar, the **Season** selector (`index · name`, the active one marked **active**), re-read from disk and full screen.
-- **Status panel** with the **Client (MainInfo)** and **Server** switch chips. When everything is fine: **Pass ready: switches on and nothing pending**.
+- **Status panel** with the **Client** and **Server** switch chips. When everything is fine: **Pass ready: switches on and nothing pending**.
 - **Sections** pane on the left: **General**, **Season**, **Prizes**, **Track**, **Missions**, **Calendar**, **Plans**, **XP sources**, **Advanced**.
 
 {% hint style="info" %}

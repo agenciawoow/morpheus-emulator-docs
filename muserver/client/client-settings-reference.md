@@ -1,40 +1,41 @@
-# MainInfo.ini & MainConnect.ini
+# Client settings reference
 
-Every key of the two client configuration files in `Tools/MainInfo/`, what it does, its default and the value shipped.
+Every client setting and connection setting edited in **Client Hub → Client settings**, what it does, its default and the value shipped.
 
 ## What it is
 
-`MainInfo.ini` holds the client's feature switches and options (menus, interface, MU Helper, character attack speed caps, Discord presence, login buttons). `MainConnect.ini` holds how the client connects and how its window looks. Both are read when you pack the client (GetMainInfo screen or `Encoder.exe`) and end up inside the client data files. Players never edit them.
+The **client settings** hold the client's feature switches and options (menus, interface, MU Helper, character attack speed caps, Discord presence, login buttons). The **connection settings** hold how the client connects and how its window looks. Both are edited in [Client Hub → Client settings](../../dashboard/client-hub/client-settings.md) and reach the players when you [publish an update from the Client Hub](../../dashboard/client-hub/publishing-updates.md). Players never edit them.
 
 In the tables below:
 
-- **Default** = value used when the key is missing from the file.
-- **Shipped** = value in the `MainInfo.ini` delivered with the server files.
+- **Default** = value used when the key is missing (not set).
+- **Shipped** = value in the client settings delivered with the server files.
+- Keys are grouped by section (`[Custom]`, `[Interface]`, ...), shown in the headings below.
 
 {% hint style="warning" %}
-`.ini` rules that bite:
+Rules that bite when the settings are edited as text:
 - A key is only read under its **own section header** (`[Custom]`, `[Interface]`, ...). A key placed under the wrong header is silently ignored and falls back to its default.
 - Lines starting with `;` are comments. A line starting with `//` is **not** a comment for this format; it is just an invalid line, and keys below it still belong to the section above.
-- New sections must go at the **end** of the file. Inserting a header in the middle "captures" every key below it.
+- New sections must go at the **end** of the settings. Inserting a header in the middle "captures" every key below it.
 {% endhint %}
 
 ## Enable it
 
-Every switch in this page takes effect only after you repack and redistribute the client (see [Reload module](#reload-module)). Server-side counterparts are listed in [Client-side customs](README.md) (table "Server custom <-> client custom that must match").
+Every switch in this page takes effect only after you save it and publish it to players from the Client Hub (see [Reload module](#reload-module)). Server-side counterparts are listed in [Client-side customs](README.md) (table "Server custom <-> client custom that must match").
 
-## Files & syntax
+## Settings
 
-### MainInfo.ini - [MainInfo]
+### Client settings - general
 
 | Key | Default | Shipped | Meaning |
 |---|---|---|---|
-| `ClientName` | - | `Main.exe` | Informational only. Not read by the packer. |
+| `ClientName` | - | `Main.exe` | Informational only. Not used when the client is published. |
 | `MaxOfInstance` | `2` | `5` | Maximum number of game windows a player can open at the same time on one PC. |
 | `PluginAntiHack` | empty | empty | Optional plugin file name loaded by the client. Leave empty unless your installer provides one. |
 | `PluginReShader` | empty | empty | Optional shader plugin file name. Leave empty unless your installer provides one. |
-| `PathExport` | empty | `<client-folder>` | Client folder where the packed files are written (`<PathExport>\Data\morph.pak`, `<PathExport>\Data\Local\morpheus.emu`). If empty here, the value from `MainConnect.ini` is used; if both are empty, output goes to `Tools/MainInfo/Release/Data`. |
+| `PathExport` | empty | `<client-folder>` | Client folder where the generated client data is written before it is published. If empty here, the value from the connection settings is used. Set by your installer; normally you never change it. |
 
-### MainInfo.ini - [HelperInfo]
+### Client settings - [HelperInfo]
 
 | Key | Default | Shipped | Meaning |
 |---|---|---|---|
@@ -42,13 +43,13 @@ Every switch in this page takes effect only after you repack and redistribute th
 | `HelperActiveLevel` | `80` | `80` | Minimum character level to open/start the MU Helper on the client. The server has its own `HelperActiveLevel` in `GameServerInfo - Common.dat`. |
 | `HelperActiveOfflineSystem` | `0` | `1` | MU Helper Offline: 1 = shows the "OFF HELPER" button so the character keeps hunting after the game is closed. Also needs `HelperOfflineSwitch = 1` in `GameServerInfo - Common.dat`. See [Server features](../customs/server-features.md). |
 
-### MainInfo.ini - [ReconnectInfo]
+### Client settings - [ReconnectInfo]
 
 | Key | Default | Shipped | Meaning |
 |---|---|---|---|
 | `ReconnectTime` | `0` | `300000` | Auto-reconnect after a disconnection. `0` = off. Any value above 0 turns it on and is used as the reconnect time window (shipped `300000`, i.e. 5 minutes if read as milliseconds). |
 
-### MainInfo.ini - [CharacterInfo]
+### Client settings - [CharacterInfo]
 
 Client-side attack speed cap per class (attack speed grows with Agility up to this value).
 
@@ -62,7 +63,7 @@ Client-side attack speed cap per class (attack speed grows with Agility up to th
 | `SUMaxAttackSpeed` | `65000` | `67000` | Summoner |
 | `RFMaxAttackSpeed` | `65000` | `67000` | Rage Fighter |
 
-### MainInfo.ini - [Custom]
+### Client settings - [Custom]
 
 | Key | Default | Shipped | Meaning |
 |---|---|---|---|
@@ -89,7 +90,7 @@ Client-side attack speed cap per class (attack speed grows with Agility up to th
 | `CustomMenuType` | `0` | `2` | 1 = logo texture button, 2 = button next to the MU Helper. |
 | `EnableVipShopButton` | `0` | `0` | Menu button: Buy VIP window ([Buy VIP](../customs/buy-vip.md)). |
 | `EnableRankingButton` | `0` | `1` | Menu button: rankings. |
-| `EnableCommandButton` | `0` | `1` | Menu button: command list (from `Local/CustomCommand.txt`). |
+| `EnableCommandButton` | `0` | `1` | Menu button: command list (from the client custom file `CustomCommand.txt`). |
 | `EnableOptionButton` | `0` | `1` | Menu button: options. |
 | `EnableEventTimeButton` | `0` | `1` | Menu button: event timer. |
 | `CustomBattlePassSwitch` | `0` | `1` | 1 = Battle Pass available in the client. With 0 the whole pass is hidden. Also needs `CustomBattlePassSwitch = 1` in `GameServerInfo - Custom.dat`. See [Battle Pass](../customs/battle-pass.md). |
@@ -99,9 +100,9 @@ Client-side attack speed cap per class (attack speed grows with Agility up to th
 | `EnableMenuShop` | `1` | `1` | Burger menu tile: shop. |
 | `EnableMenuEventRoulette` | `1` | `0` | Burger menu tile: event roulette. |
 | `EnableMenuChangeItemOpt` | `1` | `0` | Burger menu tile: change item option. |
-| `EnableMenuCustomShortcutCommand` | `0` | `1` | 1 = "Quick commands" card in the burger menu, with the buttons from `Local/CustomShortcutButton.txt`. With 0 that file is not even packed. |
+| `EnableMenuCustomShortcutCommand` | `0` | `1` | 1 = "Quick commands" card in the burger menu, with the buttons from the client custom file `CustomShortcutButton.txt`. With 0 that file is not even published to the client. |
 | `EnableMenuCustomBattlePass` | `1` | `1` | Burger menu tile for the Battle Pass (only used when `CustomBattlePassSwitch = 1`). |
-| `CustomMorpheusShopSwitch` | `0` | `1` | 0 = legacy cash shop, 1 = Morpheus Shop (new HTML shop). Needs `Local/CustomMorpheusShop.txt` and `CustomMorpheusShopSwitch = 1` in `GameServerInfo - Custom.dat`. See [Morpheus Shop](../customs/morpheus-shop.md). |
+| `CustomMorpheusShopSwitch` | `0` | `1` | 0 = legacy cash shop, 1 = Morpheus Shop (new HTML shop). Needs the client custom file `CustomMorpheusShop.txt` and `CustomMorpheusShopSwitch = 1` in `GameServerInfo - Custom.dat`. See [Morpheus Shop](../customs/morpheus-shop.md). |
 | `EnableMorpheusShopCustomOptions` | `1` | `1` | 1 = clicking Buy opens a popup with sliders for Level/Luck/Skill/Additional/380/Excellent/Set/Socket, limited and priced by the server's `CustomMorpheusShop.txt` sections 1 and 2. 0 = buy the base item directly. |
 | `EnableWindowsVipShop` | `0` | `0` | Custom window: Buy VIP. |
 | `EnableWindowsRankTop` | `0` | `1` | Custom window: rankings. |
@@ -117,9 +118,9 @@ Client-side attack speed cap per class (attack speed grows with Agility up to th
 | `EnableStoreCoin3Buttom` | `0` | `1` | Personal store button: sell for coin 3 (GoblinPoint). |
 | `SceneLogin` | `0` | `3` | Login scene: 0 = normal (map 74), 1 = S1, 2 = S2/S3 (map 56), 3 = S4 (map 78), 4 = S13 (map 95). |
 | `SceneCharacter` | `0` | `0` | Character selection scene: same values as `SceneLogin` (0 = map 75, 2 = map 55, 3 = map 79, 4 = map 94). |
-| `CustomFullMapSwitch` | `0` | `1` | 1 = custom markers (NPC, gate, spot, boss, event, quest, vault, point) on the full map (Tab) and minimap, from `Local/CustomFullMap.txt`. With 0 that file is not packed. |
+| `CustomFullMapSwitch` | `0` | `1` | 1 = custom markers (NPC, gate, spot, boss, event, quest, vault, point) on the full map (Tab) and minimap, from the client custom file `CustomFullMap.txt`. With 0 that file is not published to the client. |
 
-### MainInfo.ini - [Interface]
+### Client settings - [Interface]
 
 | Key | Default | Shipped | Meaning |
 |---|---|---|---|
@@ -161,7 +162,7 @@ Client-side attack speed cap per class (attack speed grows with Agility up to th
 | `RenderEquipmentEarring` | - | `0` | Not read (earring slot disabled in this version). |
 | `RenderEquipmentFlagNat` | - | `0` | Not read (flag slot disabled in this version). |
 
-### MainInfo.ini - [DiscordPresence]
+### Client settings - [DiscordPresence]
 
 Shows the character in the player's Discord profile. The application and its images must be registered in the Discord Developer Portal.
 
@@ -186,7 +187,7 @@ Shows the character in the player's Discord profile. The application and its ima
 
 Discord allows at most 2 buttons, each with a valid text and URL.
 
-### MainInfo.ini - [SocialLogin]
+### Client settings - [SocialLogin]
 
 | Key | Default | Shipped | Meaning |
 |---|---|---|---|
@@ -199,14 +200,14 @@ Discord allows at most 2 buttons, each with a valid text and URL.
 | `SupportURL` | empty | see pitfall | "Support" button on the login footer. Empty = hidden. |
 
 {% hint style="warning" %}
-In the shipped `MainInfo.ini` the `CreateAccount*`, `SiteURL` and `SupportURL` keys sit inside `[Interface]` (after a `//` line). They are read from `[SocialLogin]`, so as shipped they are ignored and the defaults apply. Move them under `[SocialLogin]` at the end of the file.
+In the shipped client settings the `CreateAccount*`, `SiteURL` and `SupportURL` keys sit inside `[Interface]` (after a `//` line). They are read from `[SocialLogin]`, so as shipped they are ignored and the defaults apply. Move them under `[SocialLogin]` at the end of the settings.
 {% endhint %}
 
-### MainConnect.ini - [MainInfo]
+### Connection settings
 
 | Key | Meaning |
 |---|---|
-| `CustomerName` | Your customer name. Set by your installer. If empty, the connection file is not generated. |
+| `CustomerName` | Your customer name. Set by your installer. If empty, the client connection data is not generated. |
 | `LicenseID` | Set by your installer. Must be the same value the server uses. Do not change or share it. |
 | `IpAddress` | `<your-server-ip>`: public address of your ConnectServer. |
 | `IpAddressPort` | `<connectserver-port>`: client port of your ConnectServer. |
@@ -215,13 +216,13 @@ In the shipped `MainInfo.ini` the `CreateAccount*`, `SiteURL` and `SupportURL` k
 | `WindowName` | Brand shown as the window/app name. |
 | `WindowFormat` | Window title template. Variables: `{$Name}`, `{$Level}`, `{$MasterLevel}`, `{$Resets}`, `{$MasterResets}`, `{$Gold}`, `{$Coin1}`, `{$Coin2}`, `{$Coin3}`, `{$fps}`, `{$Brand}`. Wrap a number in `COMMIFY(...)` for thousands separators. |
 | `ScreenShotPath` | File name pattern for screenshots, e.g. `ScreenShots\Screen(%02d_%02d-%02d-%02d)-%04d.jpg`. |
-| `PathExport` | Client folder where the packed files are written (same as in `MainInfo.ini`; either one is enough). |
+| `PathExport` | Client folder where the generated client data is written (same as in the client settings; either one is enough). |
 | `MainExePath` / `MainExeCRC32` | Set by your installer. Do not edit. |
 
 ## Example
 
 ```ini
-[MainInfo]
+; Connection settings
 CustomerName = <set-by-installer>
 LicenseID = <set-by-installer>
 IpAddress = <your-server-ip>
@@ -234,7 +235,7 @@ PathExport = <client-folder>
 ```
 
 ```ini
-; MainInfo.ini - turn on Battle Pass, Morpheus Shop and MU Helper Offline
+; Client settings - turn on Battle Pass, Morpheus Shop and MU Helper Offline
 [HelperInfo]
 HelperActiveOfflineSystem = 1     ; + HelperOfflineSwitch = 1 in GameServerInfo - Common.dat
 
@@ -263,8 +264,8 @@ SupportURL = https://<your-website>/support
 - Client-only switches do not enable server features. Battle Pass, Morpheus Shop, MU Helper Offline and CS skills on all maps need the matching server key too.
 - `HelperActiveLevel` exists on both sides with different meanings/values (client 80, server 1). The client one only gates the client UI.
 - The `Render*` and `*Webview` keys are spelled exactly as listed (including `RenderItemToolip` and the `...Buttom` keys). A corrected spelling is a different key and is ignored.
-- Never publish your `MainConnect.ini`: it contains your license and serial.
+- Never share your connection settings: they contain your license and serial.
 
 ## Reload module
 
-No hot reload. After editing either file, repack with the GetMainInfo screen (or run `Encoder.exe` in `Tools/MainInfo/`), redistribute the client data files, and restart the game. Server-side counterparts are applied with `/reload custom` (`GameServerInfo - Custom.dat`), `/reload common` (`GameServerInfo - Common.dat`) or `/reload command` (`GameServerInfo - Command.dat`).
+No hot reload. After changing client or connection settings, save them in **Client Hub → Client settings**, [publish the update to players from the Client Hub](../../dashboard/client-hub/publishing-updates.md), and have players restart the game. Server-side counterparts are applied with `/reload custom` (`GameServerInfo - Custom.dat`), `/reload common` (`GameServerInfo - Common.dat`) or `/reload command` (`GameServerInfo - Command.dat`).

@@ -23,7 +23,7 @@ The rank is also used as a requirement by [Custom Quest](custom-quest.md) and [N
 | same | `CustomRankUserRewardSwitch` | `1` | `1` = notices and coin prize on rank-up. `0` = no rank-up rewards or notices. |
 | same | `CustomRankUserNoticeToAll` | `1` | `1` = announce rank-ups to the whole server. |
 | same | `CustomRankUserNoticeToUser` | `1` | `1` = private notice to the player. |
-| `Tools/MainInfo/MainInfo.ini` (client) | `RankUserSwitch` | `4` | Display mode: `0` show all, `1` hide stats, `2` hide logo, `3` hide stats and logo, `4` logo on top, `5` disabled. |
+| Client settings (Client Hub) | `RankUserSwitch` | `4` | Display mode: `0` show all, `1` hide stats, `2` hide logo, `3` hide stats and logo, `4` logo on top, `5` disabled. |
 | same | `RankUserShowOverHead`, `RankUserOnlyOnSafeZone`, `RankUserShowReset`, `RankUserShowMasterReset`, `RankUserNeedAltKey` | `1 1 1 1 0` | Client display options. |
 
 ## Files & syntax
@@ -74,4 +74,4 @@ None. Ranks update automatically on reset, master reset and level-up.
 
 ## Reload module
 
-`/reload custom` (admin) re-reads `CustomRankUser.txt` and the `CustomRankUser*` keys. Client display keys in `MainInfo.ini` need a client rebuild.
+`/reload custom` (admin) re-reads `CustomRankUser.txt` and the `CustomRankUser*` keys. Client display keys in the client settings must be [published to players from the Client Hub](../../dashboard/client-hub/publishing-updates.md).

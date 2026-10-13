@@ -25,7 +25,7 @@
   * [EventItemBag editor](dashboard/editors/event-item-bag.md)
 * [Client Hub](dashboard/client-hub/README.md)
   * [Client files](dashboard/client-hub/client-files.md)
-  * [GetMainInfo](dashboard/client-hub/getmaininfo.md)
+  * [Client settings](dashboard/client-hub/client-settings.md)
   * [UI Editor](dashboard/client-hub/ui-editor.md)
   * [Publishing updates](dashboard/client-hub/publishing-updates.md)
 * [Logs and audit](dashboard/logs-and-audit.md)
@@ -42,7 +42,6 @@
   * [DataServer](muserver/servers/dataserver.md)
   * [JoinServer](muserver/servers/joinserver.md)
   * [RelayServer and VoiceServer](muserver/servers/relay-and-voice.md)
-  * [MHPServer](muserver/servers/mhpserver.md)
 * [GameServer](muserver/gameserver/README.md)
   * [GameServerInfo - Common](muserver/gameserver/common.md)
   * [GameServerInfo - Character](muserver/gameserver/character.md)
@@ -150,10 +149,10 @@
 
 ## Client
 
-* [Client-side customs](muserver/client/README.md)
-* [MainInfo.ini and MainConnect.ini](muserver/client/maininfo.md)
-* [Custom files (Local)](muserver/client/custom-files.md)
-* [Effects and ItemManager](muserver/client/effects-and-item-manager.md)
+* [Client-side customs (Client Hub)](muserver/client/README.md)
+* [Client settings reference](muserver/client/client-settings-reference.md)
+* [Client custom files](muserver/client/custom-files.md)
+* [Effects and item manager files](muserver/client/effects-and-item-manager.md)
 
 ## Help
 

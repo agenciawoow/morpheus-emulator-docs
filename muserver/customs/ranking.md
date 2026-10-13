@@ -11,7 +11,7 @@ The player opens the ranking window (F8 or the Ranking button of the custom menu
 | File | Key | Default | Meaning |
 |---|---|---|---|
 | `GameServer/Data/GameServerInfo - Custom.dat` | `CustomRankingSwitch` | `1` | `1` = the server answers ranking requests. `0` = the window stays empty. |
-| `Tools/MainInfo/MainInfo.ini` (client) | `EnableRankingButton` | `1` | Shows the Ranking button in the custom menu. |
+| Client settings (Client Hub) | `EnableRankingButton` | `1` | Shows the Ranking button in the custom menu. |
 | same | `EnableWindowsRankTop` | `1` | Enables the ranking window. |
 
 ## Files & syntax
@@ -56,4 +56,4 @@ None. The window is opened from the client (F8 / Ranking button).
 
 ## Reload module
 
-`/reload custom` (admin) re-reads `CustomRanking.txt` and `CustomRankingSwitch`. Changes to the stored procedure apply immediately (they are on the database). Client keys need a client rebuild.
+`/reload custom` (admin) re-reads `CustomRanking.txt` and `CustomRankingSwitch`. Changes to the stored procedure apply immediately (they are on the database). Client keys must be [published to players from the Client Hub](../../dashboard/client-hub/publishing-updates.md).

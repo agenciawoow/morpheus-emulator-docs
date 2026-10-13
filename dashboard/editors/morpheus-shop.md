@@ -10,13 +10,13 @@ The shop has two halves, and the editor shows both together for each item:
 
 | Half | File | Controls | How to apply |
 |---|---|---|---|
-| **Client registry** | `Local/CustomMorpheusShop.txt` (packed into the client configuration) | Which items appear, in which tab, and how the 3D model is shown. | **Encode + Publish to client** |
+| **Client registry** | Client custom file `CustomMorpheusShop.txt` (published to players from the Client Hub) | Which items appear, in which tab, and how the 3D model is shown. | **Encode + Publish to client** |
 | **Server catalog** | `Data/Custom/CustomMorpheusShop.txt` | Price per duration and coin, option costs, limits, discounts and texts — defined per **item range**. | **Reload** the `custom` module |
 
 The client receives the server catalog when the shop opens, so price changes only need a GameServer reload. A new or removed item needs a new client configuration.
 
 {% hint style="warning" %}
-The shop only opens when **CustomMorpheusShopSwitch** is on in **both** places: in the client configuration ([GetMainInfo](../client-hub/getmaininfo.md) → Custom tab) and in the server's `GameServerInfo - Custom.dat`. The status chips **Client (MainInfo)** and **Server (GameServer)** show **on** / **OFF** for each side.
+The shop only opens when **CustomMorpheusShopSwitch** is on in **both** places: in the client settings ([Client Hub → Client settings](../client-hub/client-settings.md) → Custom tab) and in the server's `GameServerInfo - Custom.dat`. The status chips **Client** and **Server (GameServer)** show **on** / **OFF** for each side.
 {% endhint %}
 
 ## Screen layout
@@ -90,7 +90,7 @@ Item code 0 cannot have its own name and description — in the file, `0 0` is r
 
 ## Advanced mode
 
-**Advanced mode** shows the raw tables exactly as they are in the files: **Server · Data/Custom/CustomMorpheusShop.txt** and **Client · Local/CustomMorpheusShop.txt**. Use it for bulk edits of ranges. Switching modes with unsaved changes reloads the files and loses them.
+**Advanced mode** shows the raw tables exactly as they are in the files: **Server · Data/Custom/CustomMorpheusShop.txt** and **Client · CustomMorpheusShop.txt**. Use it for bulk edits of ranges. Switching modes with unsaved changes reloads the files and loses them.
 
 ## Saving and applying
 

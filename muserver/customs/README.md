@@ -8,10 +8,10 @@ Morpheus has more than forty systems that the original MU never had. This sectio
 |---|---|---|
 | On/off switches and texts | `GameServer/Data/GameServerInfo - Custom.dat` | A few live in `- Common.dat` |
 | Data tables | `Data/Custom/*.txt` (and `CustomBalanceClass.dat`) | One file per system |
-| Client side | `Tools/MainInfo/Local/*.txt` | Some customs need a matching client file. See [Client customs](../client/README.md) |
+| Client side | Client custom files and client settings in the **Client Hub** | Some customs need a matching client file. See [Client customs](../client/README.md) |
 
 {% hint style="warning" %}
-Some customs have **two halves**: a server file and a client file. When you add a wing, jewel, monster, shop item or VIP plan, change both and redistribute the client. Otherwise players see the wrong item or nothing at all. The [Client customs](../client/README.md) page lists every matching pair.
+Some customs have **two halves**: a server file and a client file. When you add a wing, jewel, monster, shop item or VIP plan, change both and publish the client update from the Client Hub. Otherwise players see the wrong item or nothing at all. The [Client customs](../client/README.md) page lists every matching pair.
 {% endhint %}
 
 ## Customs with their own file
@@ -20,18 +20,18 @@ Some customs have **two halves**: a server file and a client file. When you add 
 |---|---|---|---|---|---|
 | Custom Arena | `CustomArena.txt` | `CustomArenaSwitch = 0` | `/startarena <index>` | none | [Custom Arena](custom-arena.md) |
 | PvP balance (single damage formula) | `CustomBalanceClass.dat` | `CustomBalanceClassSwitch = 1` | none | none | [Balance Class](balance-class.md) |
-| Battle Pass | `CustomBattlePass.txt` + `BattlePass/NNN - <season>.txt` | `CustomBattlePassSwitch = 1` | none (button) | `MainInfo.ini` `CustomBattlePassSwitch` | [Battle Pass](battle-pass.md) |
-| Buy VIP | `CustomBuyVip.txt` | none | none (window) | `Local/CustomBuyVip.txt` | [Buy VIP](buy-vip.md) |
+| Battle Pass | `CustomBattlePass.txt` + `BattlePass/NNN - <season>.txt` | `CustomBattlePassSwitch = 1` | none (button) | Client setting `CustomBattlePassSwitch` | [Battle Pass](battle-pass.md) |
+| Buy VIP | `CustomBuyVip.txt` | none | none (window) | `CustomBuyVip.txt` (client) | [Buy VIP](buy-vip.md) |
 | Skill combos | `CustomCombo.txt` | `EnableComboToAllSwitch = 1` (Common) | none | none | [Combo](combo.md) |
 | Command descriptions | `CustomCommandDescription.txt` | none | none | see page | [Command Description](command-description.md) |
 | Death messages | `CustomDeathMessage.txt` | `CustomDeathMessageSwitch = 1` | none | none | [Death Message](death-message.md) |
 | Event Drop (item rain) | `CustomEventDrop.txt` | `CustomEventDropSwitch = 1` | `/startdrop` | none | [Event Drop](event-drop.md) |
 | Coin exchange | `CustomExchangeCoin.txt` | none | none | none | [Exchange Coin](exchange-coin.md) |
-| Custom jewels | `CustomJewel.txt` | none | none | `Local/CustomJewel.txt` | [Custom Jewel](custom-jewel.md) |
+| Custom jewels | `CustomJewel.txt` | none | none | `CustomJewel.txt` (client) | [Custom Jewel](custom-jewel.md) |
 | Custom Chaos Machine mixes | `CustomMix.txt` | none | none | none | [Custom Mix](custom-mix.md) |
 | Mix expansion (Goblin NPC) | `MixExpansion.txt` | Section 0 of `MixExpansion.txt` (the `GoblinMixNpc*` keys are not read) | none | none | [Mix Expansion](mix-expansion.md) |
-| Custom monsters | `CustomMonster.txt` | none | none | `Local/CustomMonster.txt`, `CustomMonsterRenderMesh.txt` | [Custom Monster](custom-monster.md) |
-| Morpheus Shop | `CustomMorpheusShop.txt` | `CustomMorpheusShopSwitch = 1` | none (window) | `Local/CustomMorpheusShop.txt` | [Morpheus Shop](morpheus-shop.md) |
+| Custom monsters | `CustomMonster.txt` | none | none | `CustomMonster.txt` (client), `CustomMonsterRenderMesh.txt` | [Custom Monster](custom-monster.md) |
+| Morpheus Shop | `CustomMorpheusShop.txt` | `CustomMorpheusShopSwitch = 1` | none (window) | `CustomMorpheusShop.txt` (client) | [Morpheus Shop](morpheus-shop.md) |
 | Custom /move list | `CustomMove.txt` | none | `/move` | none | [Custom Move](custom-move.md) |
 | Collector, command, move and quest NPCs | `CustomNpcCollector.txt`, `CustomNpcCommand.txt`, `CustomNpcMove.txt`, `CustomNpcQuest.txt` | `CustomNpcCollectorSwitch = 0`, `CustomNpcQuestSwitch = 1` | none | none | [NPC Customs](npc-customs.md) |
 | Online Lottery | `CustomOnlineLottery.txt` | `CustomOnlineLotterySwitch = 1` | none | none | [Online Lottery](online-lottery.md) |
@@ -42,7 +42,7 @@ Some customs have **two halves**: a server file and a client file. When you add 
 | Ranking window (F8) | `CustomRanking.txt` | `CustomRankingSwitch = 1` | none | none | [Ranking](ranking.md) |
 | Starting items per class | `CustomStartItem.txt` | none | none | none | [Start Item](start-item.md) |
 | Top lists | `CustomTop.txt` | none | `/top <type>` | none | [Custom Top](custom-top.md) |
-| Custom wings and wing mix | `CustomWing.txt`, `CustomWingMix.txt` | none | none | `Local/CustomWing.txt` | [Custom Wing](custom-wing.md) |
+| Custom wings and wing mix | `CustomWing.txt`, `CustomWingMix.txt` | none | none | `CustomWing.txt` (client) | [Custom Wing](custom-wing.md) |
 | Buffer bot | `BotSystem/BotBuffer.txt` | none | `/reload bots` | none | [Bot Buffer](bot-buffer.md) |
 
 All files above are in `Data/Custom/`. Enable keys are in `GameServerInfo - Custom.dat` unless marked (Common).
@@ -74,7 +74,7 @@ These are set entirely with keys in `GameServerInfo - Custom.dat` or `- Common.d
 
 1. Set the switch in `GameServerInfo - Custom.dat` (or `- Common.dat`).
 2. Edit the data file in `Data/Custom/`.
-3. If the custom has a client half, update the matching file in `Tools/MainInfo/Local/`, repack the client and redistribute it.
+3. If the custom has a client half, update the matching client custom file in [Client Hub → Client settings](../../dashboard/client-hub/client-settings.md) and publish the update to players from the Client Hub.
 4. Apply the change with `/reload custom` (or `/reload common`), or restart the GameServer.
 
 ## Pitfalls

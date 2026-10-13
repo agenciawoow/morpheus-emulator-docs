@@ -34,7 +34,7 @@ Typing `/rules` as player Hero shows: `Hero, no bots, no insults, no scams. Read
 
 ## Client side
 
-Nothing is required on the client for the command to work. To also list it in the client's command window, add a row to `Tools/MainInfo/Local/CustomCommand.txt` (see [Client custom files](../client/custom-files.md)) and redistribute the client.
+Nothing is required on the client for the command to work. To also list it in the client's command window, add a row to the client custom file `CustomCommand.txt` (see [Client custom files](../client/custom-files.md)) in [Client Hub → Client settings](../../dashboard/client-hub/client-settings.md), then publish the update to players from the Client Hub.
 
 ## Commands related
 

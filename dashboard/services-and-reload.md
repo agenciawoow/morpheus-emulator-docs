@@ -121,7 +121,7 @@ If you have more than one GameServer (for example a normal server and a Castle S
 
 ## What reload cannot do
 
-- **Client-side files** (anything players have on their PC/phone: item names, interface, `ServerList.bmd`, MainInfo) are not affected by a reload. Publish them with the [Client Hub](client-hub/publishing-updates.md).
+- **Client-side files** (anything players have on their PC/phone: item names, interface, `ServerList.bmd`, client settings) are not affected by a reload. Publish them with the [Client Hub](client-hub/publishing-updates.md).
 - **Ports, database connections and startup-only settings** are read only when the program starts. Use **Restart**.
 - If a reload fails because a file is invalid, the GameServer usually keeps the previous values and writes a red line in the **System Log**. Fix the file and reload again — see [Validation and conflicts](validation-and-conflicts.md).
 

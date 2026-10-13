@@ -1,6 +1,6 @@
-# Effects & ItemManager
+# Effects and item manager files
 
-Glow and particle effects attached to items and pets (`Tools/MainInfo/Common/Effect/`), and the `Tools/MainInfo/ItemManager/` reference files.
+The client effect files (glow and particle effects attached to items and pets) and the client item manager files, both found in the Client Hub.
 
 ## What it is
 
@@ -8,21 +8,21 @@ Players see these as the extra sparkles, flares and particle trails on custom we
 
 ## Enable it
 
-There is no switch: the effect files are always packed. They only need to be correct and the client repacked.
+There is no switch: the client effect files are always published to the client. They only need to be correct and [published to players from the Client Hub](../../dashboard/client-hub/publishing-updates.md).
 
-| Folder | Packed into the client? | Notes |
+| File | Used by the client? | Notes |
 |---|---|---|
-| `Common/Effect/CustomEffectStatic.txt` | Yes | Item sprites (glows). |
-| `Common/Effect/CustomEffectDynamic.txt` | Yes | Item particles. |
-| `Common/Effect/CustomPetEffectStatic.txt` | Yes | Pet sprites. |
-| `Common/Effect/CustomPetEffectDynamic.txt` | Yes | Pet particles. |
-| `Common/Effect/CustomMonsterEffectStatic.txt` | **No** | Reserved; the current packer skips it. Ships empty. |
-| `Common/Effect/CustomMonsterEffectDynamic.txt` | **No** | Reserved; the current packer skips it. Ships empty. |
-| `Local/CustomEffect*.txt`, `Local/CustomPetEffect*.txt` | **No** | Old location, see below. |
-| `ItemManager/*.txt` | **No** | Not read by the packer nor by the client. |
+| Client effect file `CustomEffectStatic.txt` | Yes | Item sprites (glows). |
+| Client effect file `CustomEffectDynamic.txt` | Yes | Item particles. |
+| Client effect file `CustomPetEffectStatic.txt` | Yes | Pet sprites. |
+| Client effect file `CustomPetEffectDynamic.txt` | Yes | Pet particles. |
+| Client effect file `CustomMonsterEffectStatic.txt` | **No** | Reserved; not published to the client in the current version. Ships empty. |
+| Client effect file `CustomMonsterEffectDynamic.txt` | **No** | Reserved; not published to the client in the current version. Ships empty. |
+| Client custom files `CustomEffect*.txt`, `CustomPetEffect*.txt` | **No** | Old copies, see below. |
+| Client item manager files (`*.txt`) | **No** | Reference only; not used by the client. |
 
 {% hint style="warning" %}
-**Common/Effect vs Local.** The same four files exist in `Local/` and in `Common/Effect/`. The packer reads **only** `Common/Effect/`. Editing the `Local/` copy changes nothing in game. The shipped copies are byte-identical; keep them that way (the control panel's editor writes both at once). If you edit by hand, edit `Common/Effect/` and copy the file to `Local/`.
+**Effect files vs custom files.** The same four files exist both as client effect files and as client custom files. Only the **client effect files** reach the players; editing the client custom file copy changes nothing in game. The shipped copies are identical; keep them that way (the Client Hub editor writes both at once).
 {% endhint %}
 
 ## Files & syntax
@@ -52,7 +52,7 @@ How the file name decides the behavior:
 
 The header line in the files lists `Item | Effect | Join | Level | ...` without the second column; every data row has **both** the group and the index.
 
-### ItemManager/CustomBuffEffect.txt
+### CustomBuffEffect.txt
 
 Buff list (index, numbers, name, flags, description), e.g.:
 
@@ -61,21 +61,21 @@ Buff list (index, numbers, name, flags, description), e.g.:
 8	8	255	255	"Increase HP"	0	1	1	"Max HP Increase: +%d%%"
 ```
 
-### ItemManager/CustomItemToolTip.txt
+### CustomItemToolTip.txt
 
 Item name color rules by item range, level, excellent and ancient (section `0`, ships empty). The header documents the color codes (1 blue, 2 red, 3 gold, 4 green, ... 24 Turquoise).
 
-### ItemManager/CustomTextTooltip.txt
+### CustomTextTooltip.txt
 
 `Index Text` pairs. Ships empty.
 
 {% hint style="info" %}
-The three `ItemManager` files are not read by the packer or by the game client, so editing them has no effect in game. Their columns are not documented here because no loader defines them.
+The three client item manager files are not published to or read by the game client, so editing them has no effect in game. Their columns are not documented here because no loader defines them.
 {% endhint %}
 
 ## Example
 
-Item sprites on a weapon (`Common/Effect/CustomEffectStatic.txt`):
+Item sprites on a weapon (client effect file `CustomEffectStatic.txt`):
 
 ```
 //==================================================================================
@@ -88,7 +88,7 @@ Item sprites on a weapon (`Common/Effect/CustomEffectStatic.txt`):
 end
 ```
 
-Pet particles (`Common/Effect/CustomPetEffectDynamic.txt`):
+Pet particles (client effect file `CustomPetEffectDynamic.txt`):
 
 ```
 // Item | Effect | Join | Level | ColorR | ColorG | ColorB | Scale | Angle | Type
@@ -97,7 +97,7 @@ Pet particles (`Common/Effect/CustomPetEffectDynamic.txt`):
 end
 ```
 
-Pet sprites (`Common/Effect/CustomPetEffectStatic.txt`, red flames on the ice dragon mount 12 483):
+Pet sprites (client effect file `CustomPetEffectStatic.txt`, red flames on the ice dragon mount 12 483):
 
 ```
 12	483   32380    22     2	      1.00     0.10     0.10     0.75    150.0   0
@@ -107,14 +107,14 @@ end
 
 ## Pitfalls
 
-- Editing `Local/CustomEffect*.txt` instead of `Common/Effect/`: no change in game.
-- Expecting `CustomMonsterEffect*.txt` to work: they are not packed by the current packer.
+- Editing the client custom file `CustomEffect*.txt` instead of the client effect file: no change in game.
+- Expecting `CustomMonsterEffect*.txt` to work: they are not published to the client in the current version.
 - Bone numbers depend on the model; a bone that does not exist simply draws nothing. Find bones by trial or with a model viewer.
 - The `Level` column does not filter by item level; it is ignored.
 - Every row needs all 11 values. A missing value shifts every following row.
-- Each file holds a limited number of rows (the packer stops reading at its internal maximum); keep the lists to what you actually use.
+- Each file holds a limited number of rows (rows beyond the internal maximum are dropped when the client data is built); keep the lists to what you actually use.
 - Effects are visual only: no server file needs to match, but the item/pet itself must exist on the server and have a model on the client ([CustomItem](custom-files.md#customitem), [CustomPet](custom-files.md#custompet)).
 
 ## Reload module
 
-No hot reload. Save the `Common/Effect/` file (and copy it to `Local/`), repack with the GetMainInfo screen (or `Encoder.exe` in `Tools/MainInfo/`), redistribute the client data and restart the game.
+No hot reload. Save the client effect file in the Client Hub (the editor keeps the client custom file copy in sync), [publish the update to players from the Client Hub](../../dashboard/client-hub/publishing-updates.md), and have players restart the game.

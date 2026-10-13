@@ -91,9 +91,9 @@ The editors show a yellow banner, for example **The files changed on the server 
 | **Reload from server** / **Reload** / **Reload (lose my changes)** | Discards your unsaved edits and loads the current version. | When the other change matters, or you're not sure what changed. |
 | **Overwrite anyway** | Saves your version over the other one. | Only when you are sure the other change can be lost (e.g. you made it yourself in another tab). |
 
-### In GetMainInfo
+### In Client settings
 
-The banner reads *MainInfo.ini/MainConnect.ini was changed on the server while you were editing here.* Use the **reload** option to see the current version (your edits are discarded) or **Overwrite with mine** to save your version over it.
+In **Client Hub → Client settings**, a banner tells you that the client or connection settings were changed on the server while you were editing. Use the **reload** option to see the current version (your edits are discarded) or **Overwrite with mine** to save your version over it.
 
 ### In the UI Editor
 

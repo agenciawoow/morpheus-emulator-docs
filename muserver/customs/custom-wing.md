@@ -18,7 +18,7 @@ There is no on/off key for custom wings: a row in `CustomWing.txt` (server and c
 
 ## Files & syntax
 
-### `Data/Custom/CustomWing.txt` (server) and `MainInfo/Local/CustomWing.txt` (client)
+### `Data/Custom/CustomWing.txt` (server) and client custom file `CustomWing.txt` (client)
 
 Both files use the same columns and **must contain the same rows**: the server uses the stats, the client uses the stats for the tooltip and the model columns to draw the wing. A single list (no section number), closed by `end` or end of file.
 
@@ -103,10 +103,10 @@ None.
 - `DecDmgA - level x DecDmgB` must stay positive at +15, and `IncDmgA + level x IncDmgB` should stay above 100, or the wing becomes a penalty.
 - The item must also exist in `Data/Item/Item.txt` (server) and in the client item list; `CustomWing.txt` only adds wing behavior.
 - `Disable*` keys only affect the mixes; existing wings keep working.
-- The client file is part of the client package: changes require repacking and redistributing the client. See [client custom files](../client/custom-files.md).
+- The client file is part of the client data: changes must be published to players from the Client Hub. See [client custom files](../client/custom-files.md).
 
 ## Reload module
 
 - `CustomWing.txt` and `CustomWingMix.txt` (server): `/reload custom`. Items already equipped get the new values the next time they are loaded (relog or re-equip).
 - `DisableWingMix*`: `/reload common`.
-- Client `MainInfo/Local/CustomWing.txt`: no hot reload; rebuild and redistribute the client.
+- Client custom file `CustomWing.txt`: no hot reload; it must be [published to players from the Client Hub](../../dashboard/client-hub/publishing-updates.md).

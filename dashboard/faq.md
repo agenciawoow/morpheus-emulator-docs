@@ -86,7 +86,7 @@ Check the **Trigger** tab: without a line in `EventItemBagManager.txt` the GameS
 
 ### Why doesn't the Morpheus Shop or Battle Pass button appear in game?
 
-Both features need their switch **on in the server and in the client**. The status chips in the editor show **on** / **OFF** for each side. Turn the client switch on in [GetMainInfo](client-hub/getmaininfo.md) and publish.
+Both features need their switch **on in the server and in the client**. The status chips in the editor show **on** / **OFF** for each side. Turn the client switch on in [Client Hub → Client settings](client-hub/client-settings.md) and publish.
 
 ### What's the difference between "Save" and "Publish"?
 

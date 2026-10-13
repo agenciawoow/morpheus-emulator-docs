@@ -1,22 +1,22 @@
-# Custom files (Local)
+# Client custom files
 
-Reference for every `Tools/MainInfo/Local/*.txt` file: purpose, columns in the order they are read, examples, and the server file it must match.
+Reference for every client custom file edited in **Client Hub → Client settings** (custom files): purpose, columns in the order they are read, examples, and the server file it must match.
 
 ## What it is
 
-These files describe client-only data: models and textures for custom items, wings, capes, pets and monsters, glow/render effects, custom maps, stack sizes, the command window, the Buy VIP list, the Morpheus Shop catalogue, event icons, map markers and WebView translations. They are packed into the client by the GetMainInfo screen (or `Encoder.exe`). The control panel has a table editor for these files (GetMainInfo screen, ".txt files" tab).
+These files describe client-only data: models and textures for custom items, wings, capes, pets and monsters, glow/render effects, custom maps, stack sizes, the command window, the Buy VIP list, the Morpheus Shop catalogue, event icons, map markers and WebView translations. You edit them as tables or text in [Client Hub → Client settings](../../dashboard/client-hub/client-settings.md) (**Custom loaders** tab), and they reach the players when you [publish an update from the Client Hub](../../dashboard/client-hub/publishing-updates.md).
 
 ## Enable it
 
-Most files are always packed. Three depend on a `MainInfo.ini` key:
+Most files are always published to the client. Three depend on a client setting:
 
-| File | Key (`MainInfo.ini`) | Default | Meaning |
+| File | Client setting | Default | Meaning |
 |---|---|---|---|
-| `Local/CustomShortcutButton.txt` | `[Custom] EnableMenuCustomShortcutCommand` | `0` | 0 = file not packed, quick-command card hidden. |
-| `Local/CustomFullMap.txt` | `[Custom] CustomFullMapSwitch` | `0` | 0 = file not packed, map shows only the default markers. |
-| `Local/CustomMorpheusShop.txt` | `[Custom] CustomMorpheusShopSwitch` | `0` | File is always packed, but only used when the Morpheus Shop is on. |
+| `CustomShortcutButton.txt` | `[Custom] EnableMenuCustomShortcutCommand` | `0` | 0 = file not published, quick-command card hidden. |
+| `CustomFullMap.txt` | `[Custom] CustomFullMapSwitch` | `0` | 0 = file not published, map shows only the default markers. |
+| `CustomMorpheusShop.txt` | `[Custom] CustomMorpheusShopSwitch` | `0` | File is always published, but only used when the Morpheus Shop is on. |
 
-See [MainInfo.ini & MainConnect.ini](maininfo.md).
+See [Client settings reference](client-settings-reference.md).
 
 ## Files & syntax
 
@@ -31,12 +31,12 @@ General format (same as the server MemScript files):
 - Textures for items are loaded from `Data/Item/Texture/`; item models from `Data/Item/` (or `Data/Player/` for armor sets).
 
 {% hint style="info" %}
-Several files carry an old header in Portuguese or Vietnamese, sometimes with column names that do not describe what the column really does. The tables below follow the order in which the packer reads the columns. Where a header is misleading, a warning says so.
+Several files carry an old header in Portuguese or Vietnamese, sometimes with column names that do not describe what the column really does. The tables below follow the order in which the columns are actually read when the client data is built. Where a header is misleading, a warning says so.
 {% endhint %}
 
 ## CEffectRenderMesh
 
-`Local/CEffectRenderMesh.txt` - extra render layers (glow, chrome, color) on item meshes, in an alternative column order. Its rows are added to the same list as [CustomItemRenderMesh](#customitemrendermesh). Several rows can target the same item (one per mesh/effect layer).
+`CEffectRenderMesh.txt` - extra render layers (glow, chrome, color) on item meshes, in an alternative column order. Its rows are added to the same list as [CustomItemRenderMesh](#customitemrendermesh). Several rows can target the same item (one per mesh/effect layer).
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -64,7 +64,7 @@ Server counterpart: none (visual only).
 
 ## CustomBuyVip
 
-`Local/CustomBuyVip.txt` - VIP packages shown in the Buy VIP window (opened with the menu button / the End key). See [Buy VIP](../customs/buy-vip.md).
+`CustomBuyVip.txt` - VIP packages shown in the Buy VIP window (opened with the menu button / the End key). See [Buy VIP](../customs/buy-vip.md).
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -94,7 +94,7 @@ As shipped, every row of the server `Data/Custom/CustomBuyVip.txt` is commented 
 
 ## CustomCape
 
-`Local/CustomCape.txt` - cloth physics for capes/cloaks (the waving cloth layers).
+`CustomCape.txt` - cloth physics for capes/cloaks (the waving cloth layers).
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -120,7 +120,7 @@ Server counterpart: none, but the item must exist on the server (`Data/Item/Item
 
 ## CustomCommand
 
-`Local/CustomCommand.txt` - the in-game command list (command window / menu button, and the mobile command panel). Shows each command with its syntax and description, filtered by account level.
+`CustomCommand.txt` - the in-game command list (command window / menu button, and the mobile command panel). Shows each command with its syntax and description, filtered by account level.
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -144,15 +144,15 @@ Must match: `Data/Command.txt` (same Index and command text). The mobile vault s
 
 ## CustomEffectDynamic
 
-`Local/CustomEffectDynamic.txt` - particle effects attached to item bones. **Not packed**: the packer reads `Common/Effect/CustomEffectDynamic.txt` instead. Keep both copies identical (the control panel editor does this). Columns and examples: [Effects & ItemManager](effects-and-item-manager.md).
+`CustomEffectDynamic.txt` - particle effects attached to item bones. **Not published from here**: the client uses the client effect file of the same name (Client Hub, **Effects** category) instead. Keep both copies identical (the Client Hub editor does this). Columns and examples: [Effects and item manager files](effects-and-item-manager.md).
 
 ## CustomEffectStatic
 
-`Local/CustomEffectStatic.txt` - sprite (glow) effects attached to item bones. **Not packed**: the packer reads `Common/Effect/CustomEffectStatic.txt`. See [Effects & ItemManager](effects-and-item-manager.md).
+`CustomEffectStatic.txt` - sprite (glow) effects attached to item bones. **Not published from here**: the client uses the client effect file of the same name (Client Hub, **Effects** category). See [Effects and item manager files](effects-and-item-manager.md).
 
 ## CustomFullMap
 
-`Local/CustomFullMap.txt` - custom markers on the full map (Tab) and minimap. Only packed when `[Custom] CustomFullMapSwitch = 1`.
+`CustomFullMap.txt` - custom markers on the full map (Tab) and minimap. Only published when `[Custom] CustomFullMapSwitch = 1`.
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -177,7 +177,7 @@ Server counterpart: none (positions should match your `MonsterSetBase` / gates i
 
 ## CustomImage
 
-`Local/CustomImage.txt` - registers extra textures (from `Data/Item/Texture/`) under an image index, so render files can use them as `Texture` / `TextureID`.
+`CustomImage.txt` - registers extra textures (from `Data/Item/Texture/`) under an image index, so render files can use them as `Texture` / `TextureID`.
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -201,7 +201,7 @@ Server counterpart: none.
 
 ## CustomItem
 
-`Local/CustomItem.txt` - registers the model (`.bmd`) of new items and their color in the item list.
+`CustomItem.txt` - registers the model (`.bmd`) of new items and their color in the item list.
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -221,7 +221,7 @@ Server counterpart: the item must exist in `Data/Item/Item.txt` (and the client'
 
 ## CustomItemRenderMesh
 
-`Local/CustomItemRenderMesh.txt` - per-mesh render layers for items (chrome, glow, bright, animated textures). Several rows per item, one per mesh/layer.
+`CustomItemRenderMesh.txt` - per-mesh render layers for items (chrome, glow, bright, animated textures). Several rows per item, one per mesh/layer.
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -252,7 +252,7 @@ Server counterpart: none.
 
 ## CustomJewel
 
-`Local/CustomJewel.txt` - custom jewels: model, sale price and the client-side rules for dropping the jewel on an item. See [Custom Jewel](../customs/custom-jewel.md).
+`CustomJewel.txt` - custom jewels: model, sale price and the client-side rules for dropping the jewel on an item. See [Custom Jewel](../customs/custom-jewel.md).
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -291,7 +291,7 @@ Must match: `Data/Custom/CustomJewel.txt` section 0. Server `ItemIndex` = `Type 
 
 ## CustomMonster
 
-`Local/CustomMonster.txt` - model, size and name of **new** monsters and NPCs (index 579 or higher; lower indexes are the original game monsters). See [Custom Monster](../customs/custom-monster.md).
+`CustomMonster.txt` - model, size and name of **new** monsters and NPCs (index 579 or higher; lower indexes are the original game monsters). See [Custom Monster](../customs/custom-monster.md).
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -314,7 +314,7 @@ Must match: the server must spawn the same index (`Data/Monster/Monster.txt` + `
 
 ## CustomMonsterRenderMesh
 
-`Local/CustomMonsterRenderMesh.txt` - per-mesh render layers for monsters. Same idea as [CustomItemRenderMesh](#customitemrendermesh), with a single monster index and **no** GlowLevel column.
+`CustomMonsterRenderMesh.txt` - per-mesh render layers for monsters. Same idea as [CustomItemRenderMesh](#customitemrendermesh), with a single monster index and **no** GlowLevel column.
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -343,7 +343,7 @@ Server counterpart: none.
 
 ## CustomMorpheusShop
 
-`Local/CustomMorpheusShop.txt` - which items appear in the Morpheus Shop and how they are shown. Prices, option prices, limits, discounts and texts are **not** here; they are in the server file. See [Morpheus Shop](../customs/morpheus-shop.md).
+`CustomMorpheusShop.txt` - which items appear in the Morpheus Shop and how they are shown. Prices, option prices, limits, discounts and texts are **not** here; they are in the server file. See [Morpheus Shop](../customs/morpheus-shop.md).
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -363,15 +363,15 @@ No sections; one item per line, up to 5000 items.
 end
 ```
 
-Must match: `Data/Custom/CustomMorpheusShop.txt` section 0 must have a price row covering every `ItemIndex` listed here. Also needs `CustomMorpheusShopSwitch = 1` in both `MainInfo.ini` and `GameServerInfo - Custom.dat`.
+Must match: `Data/Custom/CustomMorpheusShop.txt` section 0 must have a price row covering every `ItemIndex` listed here. Also needs `CustomMorpheusShopSwitch = 1` in both the client settings and `GameServerInfo - Custom.dat`.
 
 {% hint style="warning" %}
-The header of the **server** `Data/Custom/CustomMorpheusShop.txt` says the packer reads it. It does not: the packer reads only this client file (simple 5-column list). The server file (5 sections) is read by the GameServer.
+The header of the **server** `Data/Custom/CustomMorpheusShop.txt` says it is used to build the client. It is not: the client only uses this client custom file (simple 5-column list). The server file (5 sections) is read by the GameServer.
 {% endhint %}
 
 ## CustomNameWave
 
-`Local/CustomNameWave.txt` - characters whose name is drawn with the 7-color glowing effect.
+`CustomNameWave.txt` - characters whose name is drawn with the 7-color glowing effect.
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -389,7 +389,7 @@ Server counterpart: none (names must exist on your server to be visible).
 
 ## CustomNpcName
 
-`Local/CustomNpcName.txt` - overrides the name shown for an NPC, optionally only at a given position. Ships empty.
+`CustomNpcName.txt` - overrides the name shown for an NPC, optionally only at a given position. Ships empty.
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -410,7 +410,7 @@ Server counterpart: the NPC spawn in `MonsterSetBase` (same index and coordinate
 
 ## CustomPet
 
-`Local/CustomPet.txt` - custom pets and mounts: model, movement style and scale.
+`CustomPet.txt` - custom pets and mounts: model, movement style and scale.
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -434,15 +434,15 @@ Server counterpart: the item must exist in `Data/Item/Item.txt`; pet stats/optio
 
 ## CustomPetEffectDynamic
 
-`Local/CustomPetEffectDynamic.txt` - particle effects attached to pet bones. **Not packed**: the packer reads `Common/Effect/CustomPetEffectDynamic.txt`. See [Effects & ItemManager](effects-and-item-manager.md).
+`CustomPetEffectDynamic.txt` - particle effects attached to pet bones. **Not published from here**: the client uses the client effect file of the same name (Client Hub, **Effects** category). See [Effects and item manager files](effects-and-item-manager.md).
 
 ## CustomPetEffectStatic
 
-`Local/CustomPetEffectStatic.txt` - sprite effects attached to pet bones. **Not packed**: the packer reads `Common/Effect/CustomPetEffectStatic.txt`. See [Effects & ItemManager](effects-and-item-manager.md).
+`CustomPetEffectStatic.txt` - sprite effects attached to pet bones. **Not published from here**: the client uses the client effect file of the same name (Client Hub, **Effects** category). See [Effects and item manager files](effects-and-item-manager.md).
 
 ## CustomRenderEffect
 
-`Local/CustomRenderEffect.txt` - gives an item one of the built-in animated render presets (Blessed Divine weapons, Holy Angel, Awakening, Blood Angel, special wings, shields...). The full preset list (0-105) is in the file header.
+`CustomRenderEffect.txt` - gives an item one of the built-in animated render presets (Blessed Divine weapons, Holy Angel, Awakening, Blood Angel, special wings, shields...). The full preset list (0-105) is in the file header.
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -461,7 +461,7 @@ Server counterpart: none.
 
 ## CustomShortcutButton
 
-`Local/CustomShortcutButton.txt` - the "Quick commands" buttons in the burger menu (Android, iOS, web). Only packed when `[Custom] EnableMenuCustomShortcutCommand = 1`.
+`CustomShortcutButton.txt` - the "Quick commands" buttons in the burger menu (Android, iOS, web). Only published when `[Custom] EnableMenuCustomShortcutCommand = 1`.
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -488,7 +488,7 @@ Two failures are silent (the button does nothing): the command does not exist in
 
 ## CustomSmokeItem
 
-`Local/CustomSmokeItem.txt` - color of the boots "smoke" effect of full +10 (or higher) sets, for custom armor sets.
+`CustomSmokeItem.txt` - color of the boots "smoke" effect of full +10 (or higher) sets, for custom armor sets.
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -506,7 +506,7 @@ Only shown when the set is +10 or higher and `MaxItemLevelOn` is 10 or more. Ser
 
 ## CustomStack
 
-`Local/CustomStack.txt` - which items stack in the inventory and up to how many.
+`CustomStack.txt` - which items stack in the inventory and up to how many.
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -528,7 +528,7 @@ Must match: `Data/Item/ItemStack.txt` (same columns; the server writes `-1` wher
 
 ## CustomWing
 
-`Local/CustomWing.txt` - custom wings: model and the values shown in the tooltip. See [Custom Wing](../customs/custom-wing.md).
+`CustomWing.txt` - custom wings: model and the values shown in the tooltip. See [Custom Wing](../customs/custom-wing.md).
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -563,7 +563,7 @@ As shipped, the stat columns are identical on both sides; only ModelType/ModelNa
 
 ## CustomWorld
 
-`Local/CustomWorld.txt` - custom maps (index above 81): which original map behavior they reuse, their name, title image and music.
+`CustomWorld.txt` - custom maps (index above 81): which original map behavior they reuse, their name, title image and music.
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
@@ -586,7 +586,7 @@ Server counterpart: the map must exist on the server (`MapServerInfo`, terrain/a
 
 ## EventNameDisplay
 
-`Local/EventNameDisplay.txt` - name and icon of each event and invasion in the mobile event schedule. Two sections, each ending with `end`. See [Event names](../events/event-name.md).
+`EventNameDisplay.txt` - name and icon of each event and invasion in the mobile event schedule. Two sections, each ending with `end`. See [Event names](../events/event-name.md).
 
 | Section | Contents |
 |---|---|
@@ -621,7 +621,7 @@ As shipped, section 1 does not match the server: client index 9 is "Medusa2" whi
 
 ## message.txt
 
-`Local/message.txt` - translations of the WebView interface texts (mobile/web panels). One section per language; packed as key -> translated text.
+`message.txt` - translations of the WebView interface texts (mobile/web panels). One section per language; published as key -> translated text.
 
 | Section number | Language |
 |---|---|
@@ -657,13 +657,13 @@ Server counterpart: none (server texts are in `Data/Lang/`).
 
 ## Pitfalls
 
-- A missing or misnamed file is packed as an empty list without any error. Keep the exact file names.
+- A missing or misnamed file is published as an empty list without any error. Keep the exact file names.
 - Two-column `Type Index` vs single item code: `CustomStack`, `CustomMorpheusShop` and the server `CustomJewel` use the single code (`Type * 512 + Index`); most other files use two columns.
 - Color notation differs: `CustomItem` uses 0-255 integers; render, smoke and effect files use 0.0-1.0 floats.
-- Editing `Local/CustomEffect*.txt` / `Local/CustomPetEffect*.txt` has no effect; the packed copy is `Common/Effect/`.
+- Editing the `CustomEffect*.txt` / `CustomPetEffect*.txt` client custom files has no effect on its own; the copy the client uses is the client effect file (Client Hub, **Effects** category).
 - A trailing comment after the last quoted column is fine, but do not add extra values: every extra token shifts the next row.
 - Client files only control what the player sees. Stats, prices, rates and permissions always come from the server files.
 
 ## Reload module
 
-No hot reload. Save the file, repack with the GetMainInfo screen (or `Encoder.exe` in `Tools/MainInfo/`), redistribute the client data, and have players restart the game. Apply the server-side counterpart with its `/reload` group (`/reload custom` for `Data/Custom/*`, `/reload event` for `EventName.dat`).
+No hot reload. Save the file in **Client Hub → Client settings**, [publish the update to players from the Client Hub](../../dashboard/client-hub/publishing-updates.md), and have players restart the game. Apply the server-side counterpart with its `/reload` group (`/reload custom` for `Data/Custom/*`, `/reload event` for `EventName.dat`).

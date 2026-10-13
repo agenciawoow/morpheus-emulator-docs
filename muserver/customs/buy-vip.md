@@ -27,7 +27,7 @@ The benefits of each VIP level (experience, drop, command access and so on) are 
 | Side | File |
 |---|---|
 | Server | `Data/Custom/CustomBuyVip.txt` |
-| Client | `Tools/MainInfo/Local/CustomBuyVip.txt` (see [Client custom files](../client/custom-files.md)) |
+| Client | Client custom file `CustomBuyVip.txt` in the Client Hub (see [Client custom files](../client/custom-files.md)) |
 
 One row per plan, then `end`. No sections.
 
@@ -71,7 +71,7 @@ The plan sets the account level (`AccLevel`) for `Days` days. The price columns 
 
 ## Pitfalls
 
-* **Server and client files must match.** The window lists the plans of the client file; the server charges and grants from its own file using the `Index`. A plan that exists only on the client is ignored; a different price on each side means the player pays what the server says, not what the window shows. Change both files together and redistribute the client.
+* **Server and client files must match.** The window lists the plans of the client file; the server charges and grants from its own file using the `Index`. A plan that exists only on the client is ignored; a different price on each side means the player pays what the server says, not what the window shows. Change both files together and publish the client update from the Client Hub.
 * `Exp+` and `Drop+` are only shown in the window. The real bonus of each VIP level comes from the `_AL1`..`_AL3` settings. Keep the numbers in the window honest.
 * A player cannot extend or repeat their current level: buying a plan with `AccLevel` equal to or lower than their current VIP is refused (Lang 759).
 * Number the plans in increasing order (1, 2, 3, ...). The server also refuses a purchase when the plan's `Index` is not greater than the player's current VIP level, so very low indexes for high plans can be blocked by mistake.
@@ -81,4 +81,4 @@ The plan sets the account level (`AccLevel`) for `Days` days. The price columns 
 ## Reload module
 
 * `/reload custom` re-reads `Data/Custom/CustomBuyVip.txt`. New prices and plans apply to the next purchase.
-* The client file never hot-reloads: after changing `Tools/MainInfo/Local/CustomBuyVip.txt`, repack the client and redistribute it.
+* The client file never hot-reloads: after changing the client custom file `CustomBuyVip.txt`, it must be [published to players from the Client Hub](../../dashboard/client-hub/publishing-updates.md).

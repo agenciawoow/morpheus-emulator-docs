@@ -122,8 +122,8 @@ A window (H key, or the Event Time button of the custom menu) listing the countd
 | File | Key | Default | Meaning |
 |---|---|---|---|
 | `Custom.dat` | `CustomEventTimeSwitch` | `1` | `1` = the server answers the window. `0` = empty window. |
-| `MainInfo.ini` (client) | `EnableEventTimeButton` | `1` | Shows the button in the custom menu. |
-| `MainInfo.ini` (client) | `EnableWindowsEventTime` | `1` | Enables the window. |
+| Client settings (Client Hub) | `EnableEventTimeButton` | `1` | Shows the button in the custom menu. |
+| Client settings (Client Hub) | `EnableWindowsEventTime` | `1` | Enables the window. |
 
 ### Pitfalls
 
@@ -131,7 +131,7 @@ A window (H key, or the Event Time button of the custom menu) listing the countd
 
 ### Reload
 
-`/reload custom` for the switch; `/reload event` for schedules and names. Client keys need a client rebuild.
+`/reload custom` for the switch; `/reload event` for schedules and names. Client keys must be published to players from the Client Hub.
 
 ---
 
@@ -196,7 +196,7 @@ Players buy the inventory extension rows (up to 4) for WCoinC directly from the 
 | `message_failed` | `1` | Lang message index shown when the purchase is not possible now (dead, trading, window open...). `0` = no message. |
 | `message_error` | `1` | Lang message index shown when the player lacks WCoinC. `0` = no message. |
 
-Client: `InventoryExtension = 1` and `MaxInventoryExtension = 4` in `MainInfo.ini`.
+Client: `InventoryExtension = 1` and `MaxInventoryExtension = 4` in the client settings (Client Hub).
 
 ### Pitfalls
 
@@ -253,7 +253,7 @@ The "OFF HELPER" button: the character keeps hunting with the player's own MU He
 | `HelperOfflineAutoBuffDelay_AL0` .. `_AL3` | `30000` | Milliseconds between buff renewals (minimum 1000). Which buffs: the 3 buff slots of the MU Helper panel. |
 | `HelperOfflineExperienceRate_AL0` .. `_AL3` | `0` | Experience rate while offline (same scale as the normal experience rate keys). `0` = use `OffAttackExperienceRate_AL*`. |
 
-Also required: `HelperSwitch = 1` (`Common.dat`), the map's `HelperEnable` column = `1` in `Data/MapManager.txt`, and on the client `HelperActiveOfflineSystem = 1` in `MainInfo.ini` (shows the button). Both server and client switches must be on.
+Also required: `HelperSwitch = 1` (`Common.dat`), the map's `HelperEnable` column = `1` in `Data/MapManager.txt`, and on the client `HelperActiveOfflineSystem = 1` in the client settings (shows the button). Both server and client switches must be on.
 
 ### Pitfalls
 
@@ -263,7 +263,7 @@ Also required: `HelperSwitch = 1` (`Common.dat`), the map's `HelperEnable` colum
 
 ### Reload
 
-`/reload common`. Client `HelperActiveOfflineSystem` needs a client rebuild.
+`/reload common`. Client `HelperActiveOfflineSystem` must be published to players from the Client Hub.
 
 ---
 
@@ -449,4 +449,4 @@ Bows and crossbows stop consuming arrows/bolts, per account level.
 | Announce Chaos Mix, Custom Store, Custom Attack, Event Time, Guild Warehouse, Shop MessageBox, Buy Inventory Extension, Chat Anti-Spam (`Custom.dat`) | `/reload custom` |
 | MU Helper Offline, Party Voice, Reward Online Users, Combo to all, HP Bonus, Remove knockback, Transformation Ring, Infinity Arrow (`Common.dat`) | `/reload common` |
 | Lang texts (946/947, 269, Buy Inventory messages) | `/reload lang` |
-| Client keys (`MainInfo.ini`) | No hot reload: rebuild and redistribute the client |
+| Client keys (client settings) | No hot reload: must be [published to players from the Client Hub](../../dashboard/client-hub/publishing-updates.md) |

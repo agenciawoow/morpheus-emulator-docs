@@ -33,7 +33,7 @@ There is no on/off key: every jewel listed in the file works. Related keys:
 | Side | File |
 |---|---|
 | Server | `Data/Custom/CustomJewel.txt` |
-| Client | `Tools/MainInfo/Local/CustomJewel.txt` (see [Client custom files](../client/custom-files.md)) |
+| Client | Client custom file `CustomJewel.txt` in the Client Hub (see [Client custom files](../client/custom-files.md)) |
 
 The server file has three sections. Up to 15 jewels (`Index` 0..14). Sections 1 and 2 are linked to section 0 by `Index`.
 
@@ -100,7 +100,7 @@ With this, the Jewel of Level works on +9..+12 weapons and armor, succeeds 60% f
 
 ## Pitfalls
 
-* **The client file must describe the same jewels.** The client decides whether the jewel can be dragged onto an item and how it looks; the server decides the result. The client file uses separate `Type` and `Index` columns and has no `Index` (row number) column. If the rules differ, players see "can apply" and the server refuses, or the opposite. The shipped files already differ (for example the client lets the Jewel of Level start at +0, the server at +9). Align them before going live, then repack and redistribute the client.
+* **The client file must describe the same jewels.** The client decides whether the jewel can be dragged onto an item and how it looks; the server decides the result. The client file uses separate `Type` and `Index` columns and has no `Index` (row number) column. If the rules differ, players see "can apply" and the server refuses, or the opposite. The shipped files already differ (for example the client lets the Jewel of Level start at +0, the server at +9). Align them before going live, then publish the client update from the Client Hub.
 * The jewel item itself must exist in `Data/Item/Item.txt` and in the client.
 * `MaxItemOption1` set to `0` or higher also rejects items that have no skill at all, which is what you want for a Jewel of Skill.
 * Time-limited items cannot receive a custom jewel.
@@ -110,4 +110,4 @@ With this, the Jewel of Level works on +9..+12 weapons and armor, succeeds 60% f
 ## Reload module
 
 * `/reload custom` re-reads `Data/Custom/CustomJewel.txt`. The new rules apply to the next jewel used.
-* The client file never hot-reloads: repack and redistribute the client after changing `Tools/MainInfo/Local/CustomJewel.txt`.
+* The client file never hot-reloads: after changing the client custom file `CustomJewel.txt`, it must be [published to players from the Client Hub](../../dashboard/client-hub/publishing-updates.md).

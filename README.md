@@ -20,7 +20,7 @@ to your first configuration change and your first event in a few minutes.
 | [MuServer](muserver/README.md) | How to configure every server, every file and every setting, with syntax and examples |
 | [Events](muserver/events/README.md) | All classic and custom events: enabling, scheduling and rewards |
 | [Customs](muserver/customs/README.md) | Every custom system and how to configure it |
-| [Client customs](muserver/client/README.md) | Client-side customs that ship with the game client |
+| [Client customs](muserver/client/README.md) | Client-side customs, managed in the Client Hub and published to players |
 | [Troubleshooting](troubleshooting.md) | Common problems and how to fix them |
 
 ## How to read the configuration pages
