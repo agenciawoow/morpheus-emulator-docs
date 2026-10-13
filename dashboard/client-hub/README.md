@@ -14,7 +14,6 @@ For what each client file controls, see the MuServer reference: [Client files](.
 | **Publish updates** | [Publishing updates](publishing-updates.md) | Review the queue of edited files and publish them to players. |
 
 {% hint style="info" %}
-The Client Hub requires file access (roles `admin`, `reseller`, `client`).
 {% endhint %}
 
 ## How a client change reaches players

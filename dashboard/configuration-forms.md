@@ -3,7 +3,7 @@
 The **Configuration** page turns the main MuServer `.ini`-style settings files into **forms**. Every field already knows its type, allowed range and validation, so you can change settings without worrying about syntax. A key that does not exist in the file yet is **created** when you save.
 
 {% hint style="info" %}
-You need file access (roles `admin`, `reseller`, `client`). Changes made here are saved to the same files you see in the [File editor](file-editor.md), with the same backup and audit protection.
+Changes made here are saved to the same files you see in the [File editor](file-editor.md), with the same backup and audit protection.
 {% endhint %}
 
 ## Page layout

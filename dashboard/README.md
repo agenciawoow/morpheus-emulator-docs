@@ -20,7 +20,6 @@ The panel is available in **Português (Brasil)**, **English**, **Español**, **
 | Client Hub | Client files, GetMainInfo, UI Editor and publishing updates to players | [Client Hub](client-hub/README.md) |
 | Logs & Audit | Who changed what, and when | [Logs and audit](logs-and-audit.md) |
 | Server logs | Read the MuServer log files from the browser | [Server logs](server-logs.md) |
-| API | Tokens for your own automations | [API tokens](api-tokens.md) |
 | AI assistant | Ask questions about your files and settings | [AI assistant](ai-assistant.md) |
 
 ## First screen: picking a server
@@ -28,9 +27,9 @@ The panel is available in **Português (Brasil)**, **English**, **Español**, **
 After you sign in:
 
 - If your account has **only one server**, the panel opens that server's dashboard directly.
-- If you manage **several servers** (for example, a reseller account), you see a **Welcome** page with one card per server. Each card shows the server name, its ID, an **Online** / **Offline** badge and a summary such as `5 services · 42 editable files`. Click a card to open it.
+- If your account has **several servers**, you see a **Welcome** page with one card per server. Each card shows the server name, its ID, an **Online** / **Offline** badge and a summary such as `5 services · 42 editable files`. Click a card to open it.
 
-If you see **No server available — Your account has no server assigned. Talk to an admin.**, your account exists but no server has been linked to it yet. Contact your reseller or support.
+If you see **No server available — Your account has no server assigned. Talk to an admin.**, your account exists but no server has been linked to it yet. Contact support.
 
 ## Screen layout
 
@@ -40,25 +39,23 @@ Every server page has the same three parts: the **sidebar** on the left, the **t
 
 At the top of the sidebar you find the Morpheus Emulator logo (click it to return to the server list) and a server card with:
 
-- **Server logo** – click the round avatar to upload your own logo (PNG, JPEG, WebP or SVG, up to 256 KiB). Only users allowed to change the logo see the edit icon.
+- **Server logo** – click the round avatar to upload your own logo (PNG, JPEG, WebP or SVG, up to 256 KiB).
 - **Server name and ID**.
 - **Connection status** – green **connected** when the panel can talk to your machine, red **offline** when it can't. When offline, live data and file editing are unavailable.
-- **Role** – your role on this server (`admin`, `reseller`, `client` or `operator`). See [Roles and permissions](roles-and-permissions.md).
 
-Below the card is the navigation menu. Items you are not allowed to use are hidden automatically.
+Below the card is the navigation menu.
 
-| Menu item | Sub-items | Who sees it |
-|---|---|---|
-| **Dashboard** | – | Everyone |
-| **Files** | – | Users with file access |
-| **Configuration** | – | Users with file access |
-| **Licenses** | – | Users who can view licenses |
-| **Client Hub** | **Client Files**, **GetMainInfo**, **UI Editor**, **Publish updates** | Users with file access |
-| **Editors** | **NPC Shop editor**, **Spot editor**, **Cash Shop (X)**, **Morpheus Shop**, **Battle Pass**, **EventItemBag Editor** | Users with file access |
-| **API** | – | Users allowed to manage tokens |
-| **Logs & Audit** | – | Users with log access |
-| **Server logs** | – | Users with log access |
-| **Morpheus Sender** | – | Everyone |
+| Menu item | Sub-items |
+|---|---|
+| **Dashboard** | – |
+| **Files** | – |
+| **Configuration** | – |
+| **Licenses** | – |
+| **Client Hub** | **Client Files**, **GetMainInfo**, **UI Editor**, **Publish updates** |
+| **Editors** | **NPC Shop editor**, **Spot editor**, **Cash Shop (X)**, **Morpheus Shop**, **Battle Pass**, **EventItemBag Editor** |
+| **Logs & Audit** | – |
+| **Server logs** | – |
+| **Morpheus Sender** | – |
 
 At the bottom, the **Protected access** box reminds you that every change goes through schema validation, backup and audit.
 

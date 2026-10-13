@@ -30,9 +30,7 @@
   * [Publishing updates](dashboard/client-hub/publishing-updates.md)
 * [Logs and audit](dashboard/logs-and-audit.md)
 * [Server logs](dashboard/server-logs.md)
-* [API tokens](dashboard/api-tokens.md)
 * [AI assistant](dashboard/ai-assistant.md)
-* [Roles and permissions](dashboard/roles-and-permissions.md)
 * [Dashboard FAQ](dashboard/faq.md)
 
 ## MuServer

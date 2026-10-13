@@ -7,7 +7,7 @@ Your personal settings live in two pages, both reachable from the **account menu
 
 ## Editing your profile
 
-Open **account menu → Edit profile**. The **Your account** card shows your **Role:** with the note that permissions and menus come from this role — only an administrator can change it.
+Open **account menu → Edit profile**. The **Your account** card shows your account details.
 
 | Field | Description |
 |---|---|
@@ -58,7 +58,7 @@ The card now shows the **active** badge.
 3. Confirm. You will see **2FA disabled. You can turn it back on at any time.**
 
 {% hint style="warning" %}
-If you lose access to your authenticator app, ask your administrator or reseller to **reset 2FA** for your account. You can then enable it again with a new phone.
+If you lose access to your authenticator app, ask support to **reset 2FA** for your account. You can then enable it again with a new phone.
 {% endhint %}
 
 {% hint style="info" %}
@@ -76,7 +76,7 @@ Alerts always arrive in the panel (the bell in the top bar). If your account is 
 | Type | What it covers | Recommendation |
 |---|---|---|
 | **Urgent** | Critical incidents: server offline, ban, credential leak. | Keep it always on. |
-| **Server status** | Operational alerts: GameServer went down, MuServer restarted, the connection to your machine was lost. | On for owners and operators. |
+| **Server status** | Operational alerts: GameServer went down, MuServer restarted, the connection to your machine was lost. | On by default. |
 | **Updates** | New versions and configuration changes that affect your server. | On. |
 | **News and announcements** | Panel feature releases, community events and announcements. | Optional. |
 
@@ -90,7 +90,7 @@ At the top of the page a box tells you how notifications will be delivered:
 |---|---|
 | **Premium active** | Checked notification types arrive in the panel **and** on your registered WhatsApp. |
 | **Premium active — no phone** | You only receive notifications inside the panel. Click **Add a phone number** to fill in your phone in your profile. |
-| **Premium inactive** | Your account is not Premium, so you don't receive automatic notifications outside the panel. Talk to your reseller to enable it. |
+| **Premium inactive** | Your account is not Premium, so you don't receive automatic notifications outside the panel. Contact support to enable it. |
 
 {% hint style="info" %}
 Phone numbers must contain digits only, including the country code (for example `5511999999999`). The profile form formats it for you.
@@ -98,7 +98,7 @@ Phone numbers must contain digits only, including the country code (for example 
 
 ## Changing the server logo
 
-If you are allowed to, you can personalise the avatar shown in the sidebar:
+You can personalise the avatar shown in the sidebar:
 
 1. Click the round avatar at the top of the sidebar (a wrench icon appears on hover, tooltip **Change server logo**).
 2. In **Server logo**, choose a file: PNG, JPEG, WebP or SVG, up to 256 KiB.
@@ -107,6 +107,4 @@ If you are allowed to, you can personalise the avatar shown in the sidebar:
 ## Security checklist
 
 - Enable 2FA on every account that can edit files or control services.
-- Give your staff their own accounts with the smallest role they need (see [Roles and permissions](roles-and-permissions.md)) instead of sharing yours.
 - Review [Logs and audit](logs-and-audit.md) regularly to see who changed what.
-- Revoke [API tokens](api-tokens.md) you no longer use.

@@ -3,7 +3,6 @@
 The **MuServer services** table on the [Dashboard](server-dashboard.md) lets you control every MuServer program without logging in to the server machine: start, stop, restart, start/stop everything in the right order, and **hot reload** — make a program re-read its files *without* closing it and without disconnecting anyone.
 
 {% hint style="info" %}
-You need the **control services** permission (roles `admin`, `reseller`, `client` and `operator` all have it). See [Roles and permissions](roles-and-permissions.md).
 {% endhint %}
 
 ## Per-service buttons

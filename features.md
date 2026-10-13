@@ -33,7 +33,6 @@ On every platform:
 
 - The client ships in seven languages, switchable inside the game.
 - New content arrives automatically when the player opens the game, downloading only what changed.
-- When the game crashes on a device, the report reaches your control panel without you having to ask the player for anything.
 
 ## Flagship systems
 
@@ -211,7 +210,7 @@ You run the entire server from a web browser, from anywhere:
 - Back up a service folder, compare it with the live files and restore only the files you choose.
 - Visual editors for the [Morpheus Shop](dashboard/editors/morpheus-shop.md), [Cash Shop](dashboard/editors/cash-shop.md), [Battle Pass](dashboard/editors/battle-pass.md), [EventItemBag](dashboard/editors/event-item-bag.md), [NPC shops](dashboard/editors/npc-shop.md) and [spawn spots](dashboard/editors/spot.md).
 - The [Client Hub](dashboard/client-hub/README.md) to change what players see (server list, game texts, items, client settings, game panels) and publish it with one button.
-- Crash reports from players' devices, per-service logs and session history.
-- Two-factor sign-in, separate owner and operator access, and a tamper-evident activity log.
+- Per-service server logs readable from the browser.
+- Two-factor sign-in and a tamper-evident activity log.
 
 See the [Control panel guide](dashboard/README.md).

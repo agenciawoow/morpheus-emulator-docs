@@ -4,19 +4,15 @@
 
 ### I forgot my password. How do I get back in?
 
-Ask your administrator or reseller to set a new password on your account (**Clients → edit → New password**). Then sign in and change it in **Edit profile**.
+Ask support to set a new password on your account. Then sign in and change it in **Edit profile**.
 
 ### I lost my phone with the authenticator app.
 
-Ask your administrator or reseller to **reset 2FA** on your account. You can then sign in with just the password and enable 2FA again in [Account and security](account-and-security.md#two-factor-authentication).
-
-### Some menu items are missing for me.
-
-Menus depend on your role. For example, `operator` accounts only see the Dashboard and Morpheus Sender, and `client` accounts don't see **API**. See [Roles and permissions](roles-and-permissions.md).
+Ask support to **reset 2FA** on your account. You can then sign in with just the password and enable 2FA again in [Account and security](account-and-security.md#two-factor-authentication).
 
 ### Can I give my staff access without sharing my password?
 
-Yes. Ask your reseller or administrator to create a separate account for each staff member, with the `operator` role for people who only start/stop services, or `client` for people who edit configuration.
+Yes. Ask support to create a separate account for each staff member.
 
 ### How do I change the panel language?
 

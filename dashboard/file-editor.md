@@ -3,7 +3,6 @@
 The **Files** page (**File editor**) lets you browse the server's folders and edit configuration files directly from the browser. Every save is validated, backed up, audited and protected against two people overwriting each other.
 
 {% hint style="info" %}
-You need file access (roles `admin`, `reseller` and `client`). Operators don't see this page. See [Roles and permissions](roles-and-permissions.md).
 {% endhint %}
 
 ## Page layout

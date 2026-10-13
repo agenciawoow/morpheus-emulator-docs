@@ -7,10 +7,9 @@ The **AI assistant** answers questions about your MuServer files and settings in
 The assistant appears only when **all** of these are true:
 
 1. The assistant is enabled for the platform.
-2. Your account has the **AI assistant** option turned on (an administrator enables it per user).
-3. Your account has file access (roles `admin`, `reseller`, `client`).
+2. Your account has the **AI assistant** option turned on (support enables it for your account).
 
-If any of these is missing, the button simply doesn't show. Ask your administrator or reseller if you'd like access.
+If any of these is missing, the button simply doesn't show. Ask support if you'd like access.
 
 ## Opening the assistant
 
@@ -62,7 +61,7 @@ Sensitive values such as passwords, tokens, keys and IP addresses are masked bef
 | **The assistant is busy. Try again in a moment.** | Many people are using it right now. |
 | **The answer took too long. Try a more specific question.** | Narrow the question (mention the file or setting). |
 | **The AI model is not available right now. Let the administrator know.** | Temporarily unavailable. |
-| **The AI assistant is turned off.** / **You are not allowed to use the assistant.** | Access was disabled. |
+| **The AI assistant is turned off.** | The assistant is not enabled for your account. |
 
 ## Tips for good answers
 

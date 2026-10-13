@@ -3,7 +3,6 @@
 **Server logs** is a read-only browser over the MuServer log folders. Use it to read what the GameServer, ConnectServer, DataServer and the other programs wrote — today or on previous days — without connecting to the server machine. Content is read on demand directly from your server.
 
 {% hint style="info" %}
-Requires log access (roles `admin`, `reseller`, `client`).
 {% endhint %}
 
 ## Reading a log

@@ -4,7 +4,7 @@ This page explains how to sign in to the dashboard, how the two-factor code step
 
 ## Signing in step by step
 
-1. Open the dashboard address you received from your reseller or from support.
+1. Open the dashboard address you received from support.
 2. In **Username or e-mail**, type your login.
 3. In **Password**, type your password.
 4. Click **Sign in**. The button changes to **Signing in…** while the panel checks your credentials.
@@ -26,7 +26,7 @@ When 2FA is active on your account, signing in always takes two steps: password 
 | **Authenticator code invalid or expired.** | Same as above | Check that your phone's clock is set to automatic time |
 
 {% hint style="warning" %}
-**Lost your phone or reinstalled the authenticator app?** You can't remove 2FA yourself without a valid code. Ask your administrator or reseller to **reset 2FA** on your account. After the reset you sign in with just the password and can enable 2FA again from your profile.
+**Lost your phone or reinstalled the authenticator app?** You can't remove 2FA yourself without a valid code. Ask support to **reset 2FA** on your account. After the reset you sign in with just the password and can enable 2FA again from your profile.
 {% endhint %}
 
 To turn 2FA on or off, see [Account and security](account-and-security.md#two-factor-authentication).
@@ -60,5 +60,5 @@ Always sign out on shared or public computers. Your session also expires automat
 |---|---|
 | **E-mail and password are required.** | Fill in both fields. |
 | **Captcha invalid or expired.** / **Confirm the captcha to continue.** | Reload the login page and try again. Disable aggressive ad/script blockers for the panel address. |
-| I forgot my password | Ask your administrator or reseller to set a new password for your account. |
-| After login I see **No server available** | Your account has no server assigned yet. Contact your reseller or support. |
+| I forgot my password | Ask support to set a new password for your account. |
+| After login I see **No server available** | Your account has no server assigned yet. Contact support. |

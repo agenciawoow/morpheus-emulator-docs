@@ -16,10 +16,6 @@ The page lists every pending file of the server:
 
 The summary reads `3 pending file(s)`. If nothing is pending: **Nothing pending** — every edited file has already been published.
 
-{% hint style="info" %}
-Resellers and administrators who manage several servers see an aggregated view: `5 file(s) across 2 server(s)`.
-{% endhint %}
-
 ## Publishing step by step
 
 1. Review the list. Make sure every file is one you intend to ship.

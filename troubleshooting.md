@@ -57,7 +57,7 @@ end
 
 ### I cannot edit some files
 
-**Cause:** executables and libraries can never be edited, and DataServer and JoinServer are read-only by default. Operator accounts cannot edit files at all.
+**Cause:** executables and libraries can never be edited, and DataServer and JoinServer are read-only by default.
 
 **Fix:** sign in with the server owner's account. See [Signing in](dashboard/signing-in.md).
 
@@ -212,7 +212,3 @@ You can also start the event right away from the panel, or with its GM command, 
 ### Players cannot buy inventory extension
 
 **Fix:** set `SwitchBuyInventoryExt = 1` and the price of each extension in `GameServerInfo - Custom.dat`. See [Server features](muserver/customs/server-features.md).
-
-### The game crashes on a player's phone
-
-**Fix:** open the crash reports in the control panel. Each report shows the device model, the game version and the technical detail of the failure, so you do not need the player's phone. Update failures are listed separately, to tell whether a specific file is blocking players from getting in.

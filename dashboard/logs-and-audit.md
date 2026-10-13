@@ -3,7 +3,6 @@
 **Logs & Audit** is the append-only history of the critical actions on your server: who started or stopped a service, who saved which file, who created or restored a backup, and more. Entries cannot be edited or deleted afterwards, so you always have a trustworthy record of what happened.
 
 {% hint style="info" %}
-Requires log access (roles `admin`, `reseller`, `client`). See [Roles and permissions](roles-and-permissions.md).
 {% endhint %}
 
 ## Reading the audit list
@@ -19,7 +18,7 @@ Each entry shows:
 | Actor | The account (e-mail) that did it. |
 | **target** | What it was done to: a file path, a service name, a backup ID… |
 | Time | When it happened. |
-| Risk pill | **Low risk** for normal actions; **High risk** when the action was **rejected** (for example a save blocked by validation or a permission). |
+| Risk pill | **Low risk** for normal actions; **High risk** when the action was **rejected** (for example a save blocked by validation). |
 
 ### Common actions
 
@@ -30,7 +29,6 @@ Each entry shows:
 | `service.start` / `service.stop` / `service.restart` / `service.reload` | Service control from the dashboard. |
 | `backup.create` / `backup.restore` / `backup.diff` | Backups created, restored or compared. |
 | `server.logo.*` | Server logo changed or removed. |
-| `token.create` / `token.revoke` | API tokens created or revoked. |
 | `auth.login` | A sign-in to the panel. |
 | `user.*` | Account changes (profile, 2FA reset, AI access). |
 | `clienthub.pending.cancel` | A pending client update was cancelled. |

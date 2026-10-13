@@ -12,7 +12,6 @@ The **Editors** menu groups visual editors for the parts of the MuServer you cha
 | [EventItemBag](event-item-bag.md) | **EventItemBag Editor** | Boxes, boss drops and event rewards: what drops, at what chance and when. | [EventItemBag](../../muserver/data/event-item-bag.md) |
 
 {% hint style="info" %}
-The editors need file access (roles `admin`, `reseller`, `client`). Reloading the GameServer from an editor also needs the **control services** permission. See [Roles and permissions](../roles-and-permissions.md).
 {% endhint %}
 
 ## Features shared by all editors
@@ -80,7 +79,6 @@ Possible notes on the reload step:
 |---|---|
 | **&lt;GameServer&gt; is stopped** | Start the GameServer first; there's nothing to reload. |
 | **no GameServer with reload** | No GameServer on your server supports hot reload. Contact support. |
-| **no permission to reload services (ask an admin for the "control services" permission)** | Your role can edit files but not control services. |
 
 {% hint style="info" %}
 Saving again resets the reload and publish steps: players don't have the newest version until you reload/publish again.

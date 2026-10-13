@@ -154,7 +154,7 @@ Every event can run on a schedule, by GM command, or from one click in the contr
 | Economy | NPC shops, personal shops, offline shops, Cash Shop and Morpheus Shop, tiered VIP, custom currencies with exchange, PC Point, password-protected warehouse, safe trade |
 | Anti-cheat | Packet, skill and speed checks; per-account connection control; name and chat filters; GM account and character blocking; item duplication protection validated on the server |
 | Security | Hardened network protocol between client and server |
-| Operations | Server messages in each player's own language; event scheduler; hot reload of tables and settings; detailed logs and crash reports |
+| Operations | Server messages in each player's own language; event scheduler; hot reload of tables and settings; detailed server logs |
 
 ## Control panel
 
@@ -174,8 +174,8 @@ The control panel runs the server from a web browser. See the [Control panel gui
 | Spot editor | Place monsters and NPCs on the real map | [Spot editor](dashboard/editors/spot.md) |
 | Client Hub | Visual editors for the server list, game texts, items, client settings, move requirements, mixes and tooltips; UI Editor with live preview of the game's web panels; review queue and one-click publish | [Client Hub](dashboard/client-hub/README.md) |
 | Player updates | Players receive new content automatically when they open the game, downloading only what changed | [Client Hub](dashboard/client-hub/README.md) |
-| Diagnostics | Crash reports from players' devices, update failures, per-service logs, session history and online players by platform | [Control panel](dashboard/README.md) |
-| Accounts and roles | Owner and operator access levels, two-factor login and a tamper-evident activity log | [Signing in](dashboard/signing-in.md) |
+| Diagnostics | Per-service server logs and online players by platform | [Server logs](dashboard/server-logs.md) |
+| Accounts and security | Two-factor login and a tamper-evident activity log | [Signing in](dashboard/signing-in.md) |
 | Languages | Panel available in English, Portuguese, Spanish, Vietnamese and Chinese | [Control panel](dashboard/README.md) |
 
 ## Version history
@@ -261,7 +261,6 @@ Security and voice.
 
 - **Hardened network protocol.** Traffic between client and server is protected in both directions.
 - **Party voice.** Voice chat inside the game on PC, Android and browser, with no separate program and no third-party service. The connection stays alive with the panel closed, and an indicator shows who is speaking.
-- **Automatic crash reporting.** Game crashes on the player's device and update download failures arrive in the control panel with device model and version.
 - **Packaged updates.** Updates download as a single package plus the changed files instead of thousands of separate downloads: faster, with far fewer failures halfway through.
 
 ### Changed
@@ -293,6 +292,6 @@ The foundation.
 - **Complete emulator**: the seven server programs, character progression, items, companions, economy, social systems, combat, monster AI and anti-cheat.
 - **More than 40 custom systems**: automatic assistants, minigames, customization, rankings and the 88 commands.
 - **32 events**: the 14 MU classics and the 18 built for Morpheus, with time scheduling.
-- **Control panel**: service control, file editor, backups and access roles.
+- **Control panel**: service control, file editor and backups.
 - **Balance analysis tool.** Simulates all 225 matchups among the 15 classes with the server's real formulas and produces a report with the win-rate matrix and proposed corrections. Runs in analysis mode by default and only writes after your confirmation, always with a backup.
 - **Windows client and launcher**, in 32 and 64 bit, with the launcher updating the game before entry.
