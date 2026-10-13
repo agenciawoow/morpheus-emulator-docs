@@ -1,0 +1,12 @@
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+site:
+  title: Morpheus Emulator
+  structure:
+    - type: space
+      key: morpheus-docs-en
+      title: Documentation
+      path: docs
+      default: true
+      content:
+        directory: ./
+        language: en
