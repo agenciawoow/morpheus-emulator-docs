@@ -60,6 +60,7 @@ Below the card is the navigation menu.
 | **Logs & Audit** | – |
 | **Server logs** | – |
 | **Morpheus Sender** | – |
+| **Docs** | Opens this documentation in a new tab |
 
 At the bottom, the **Protected access** box reminds you that every change goes through schema validation, backup and audit.
 
