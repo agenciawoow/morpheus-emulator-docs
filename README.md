@@ -16,6 +16,8 @@ to your first configuration change and your first event in a few minutes.
 | [Getting started](getting-started.md) | What is in the package and your first steps |
 | [Feature overview](features.md) | Everything Morpheus Emulator delivers |
 | [Changelog](CHANGELOG.md) | Main customs, features and the version history |
+| [Tutorials](tutorials/README.md) | Step-by-step: EventItemBag, custom items, maps, wings and pets |
+| [Guides](guides/README.md) | Profitable server methodology, multi-platform playbook and monetization catalog |
 | [Dashboard](dashboard/README.md) | How to use every screen of the control panel and its visual editors |
 | [MuServer](muserver/README.md) | How to configure every server, every file and every setting, with syntax and examples |
 | [Events](muserver/events/README.md) | All classic and custom events: enabling, scheduling and rewards |

@@ -5,6 +5,22 @@
 * [Feature overview](features.md)
 * [Changelog](CHANGELOG.md)
 
+## Tutorials
+
+* [Tutorials](tutorials/README.md)
+* [Mini tutorial: configure an EventItemBag](tutorials/event-item-bag-step-by-step.md)
+* [Adding a custom item](tutorials/custom-item.md)
+* [Adding a custom map](tutorials/custom-map.md)
+* [Adding a custom wing](tutorials/custom-wing.md)
+* [Adding a custom pet](tutorials/custom-pet.md)
+
+## Guides
+
+* [Guides](guides/README.md)
+* [Profitable server methodology](guides/profitable-server-methodology.md)
+* [Multi-platform playbook](guides/multiplatform-playbook.md)
+* [Monetization catalog blueprint](guides/monetization-catalog.md)
+
 ## Dashboard
 
 * [Dashboard overview](dashboard/README.md)

@@ -201,13 +201,13 @@ Server counterpart: none.
 
 ## CustomItem
 
-`CustomItem.txt` - registers the model (`.bmd`) of new items and their color in the item list.
+`CustomItem.txt` - registers the model (`.bmd`) of new items and the tint of their light/glow layers.
 
 | # | Column | Meaning | Values |
 |---|---|---|---|
 | 1 | Type | Item group | 0-15 |
 | 2 | Index | Item index | 0-511 |
-| 3-5 | ColorR, ColorG, ColorB | Item color | integers 0-255 |
+| 3-5 | ColorR, ColorG, ColorB | Tint of the item's light/glow layers | integers 0-255 |
 | 6 | FileName | Model file name without extension. Loaded from `Data/Item/` (or `Data/Player/` for groups 7-11, armor). Claws also load `<name>_L` / `<name>_R` | "name" |
 
 ```
@@ -218,6 +218,10 @@ end
 ```
 
 Server counterpart: the item must exist in `Data/Item/Item.txt` (and the client's item data). The first row for an item wins.
+
+{% hint style="warning" %}
+Never leave a row with an empty file name (`""`): the client stops reading the file there, so every item registered after it loses its model.
+{% endhint %}
 
 ## CustomItemRenderMesh
 
@@ -417,8 +421,8 @@ Server counterpart: the NPC spawn in `MonsterSetBase` (same index and coordinate
 | 1 | ID | Item group | 12 or 13 |
 | 2 | Index | Item index | 0-511 |
 | 3 | Remplace | Item code whose model is shown in the inventory/3D preview instead of this item | item code, -1 = own model |
-| 4 | Movement | How the pet moves | 0 Demon, 1 Rudolf, 2 Panda, 3 Unicorn, 4 Skeleton, 5 Fenrir (mount), 6 Dark Horse (mount), 7 Uniria (mount), 8 Muun pet |
-| 5 | Fenri | Render effect value (all shipped rows use 0) | 0 |
+| 4 | Movement | How the pet moves | 0 Demon, 1 Rudolf, 2 Panda, 3 Unicorn, 4 Skeleton, 5 Fenrir (mount), 6 Dark Horse (mount), 7 Uniria (mount), 8 Muun pet, 11 Dinorant-style flying mount, 13 second Muun style. Values 9, 10 and 12 draw nothing |
+| 5 | Fenri | Reserved (all shipped rows use 0) | 0 |
 | 6 | Scale | Model scale | float |
 | 7 | FileName | Model file name (in `Data/Item/`) | "name" |
 
