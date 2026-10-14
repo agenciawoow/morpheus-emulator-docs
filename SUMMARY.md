@@ -47,6 +47,7 @@
   * [Publishing updates](dashboard/client-hub/publishing-updates.md)
 * [Logs and audit](dashboard/logs-and-audit.md)
 * [Server logs](dashboard/server-logs.md)
+* [Security](dashboard/security.md)
 * [AI assistant](dashboard/ai-assistant.md)
 * [Dashboard FAQ](dashboard/faq.md)
 

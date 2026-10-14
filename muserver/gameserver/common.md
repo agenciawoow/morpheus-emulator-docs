@@ -97,6 +97,23 @@ Server-side checks against modified clients. Reload with `/reload hack`.
 | `CheckAutoPotionHackTolerance` | 0 | milliseconds | Minimum time between two potions. |
 | `CheckAutoComboHack` | 0 | 0, 1 | Block combos executed faster than a human can. |
 | `CheckAutoComboHackTolerance` | 0 | milliseconds | Minimum time between combo steps. |
+| `FixTradeMoneyCheck` | 0 | 0, 1 | Re-check that both players still hold the offered zen plus the trade fee when both press OK. With 0 the balance can wrap to ~4 billion. Reloads with `/reload`. |
+| `FixCashShopLock` | 0 | 0, 1 | Keep the Cash Shop / Lucky Coin / PC Point purchase lock until the DataServer callback finishes, closing the double-purchase window. Reloads with `/reload`. |
+| `IntegrityIgnoreTelemetryBits` | 0 | 0, 1 | Do not count the SESSION/SIGCHECK telemetry bits of the 0x0E heartbeat as tamper strikes (they only mean the Android certificate could not be read). Reloads with `/reload`. |
+| `SecurityLog` | 0 | 0, 1 | Write the anti-hack evidence trail to `LOGS\SECURITY_LOG\YYYY-MM-DD.txt` (one JSON object per line, written by its own thread). The Morpheus agent ships it to the panel's Security page. Reloads with `/reload`. |
+| `GuardAttackRate` | 0 | 0-3 | Physical attacks per window above what the character's attack speed allows. 0 off, 1 log only (shadow), 2 drop the extra attacks, 3 disconnect. Start at 1 and read the Security > Calibration tab before raising it. |
+| `GuardAttackRateWindow` | 2000 | ms | Counting window. |
+| `GuardAttackRateTolerance` | 50 | % | Extra attacks allowed on top of the computed maximum. |
+| `GuardAttackRateBurst` | 3 | number | Fixed extra attacks per window for TCP bursts (mobile networks deliver packets in batches). |
+| `GuardPositionPacket` | 0 | 0-3 | Position packet (0x15) without a skill packet within the window (teleport / wall hacks). 0 off, 1 log only, 2 drop when it is also farther than the range, 3 disconnect. |
+| `GuardPositionPacketWindow` | 500 | ms | Max gap between the skill packet and the position packet (either order). |
+| `GuardPositionPacketRange` | 4 | tiles | Distance from which a position packet counts as far. |
+| `GuardGraceAfterTeleport` | 2000 | ms | Nothing is counted this long after a server-side teleport or map change. |
+| `GuardSpeedReport` | 0 | 0-3 | Attack/magic speed reported in the heartbeat above the highest server value of the last ~35 s for 3 beacons in a row. 0 off, 1 log, 2 log as high severity, 3 disconnect. Safe replacement for `CheckSpeedHack`, which kicks when a buff expires with a beacon in flight. |
+| `GuardSpeedReportTolerance` | 5 | points | Allowed difference. |
+| `GuardPacketFlood` | 0 | 0-3 | Global packets-per-second cap per connection, any opcode. 0 off, 1 log, 2 drop the excess, 3 disconnect. |
+| `GuardPacketFloodMax` | 60 | packets/s | The cap. |
+| `GuardClientScan` | 0 | 0, 1 | Turn on the Windows client's injection scanner (DLLs outside the allowlist, hooks on send/recv/timers, external processes with write access, threads outside any module) and accept its reports. Report-only; the Security > Modules tab decides what is legitimate. With 0 the client scans nothing. |
 
 {% hint style="warning" %}
 Turn these on one at a time and watch the hack log. A tolerance that is too low punishes honest players with lag.

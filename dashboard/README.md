@@ -24,6 +24,7 @@ Dashboard preview: a tour of the control panel — server status, service contro
 | Client Hub | Client files, Client settings, UI Editor and publishing updates to players | [Client Hub](client-hub/README.md) |
 | Logs & Audit | Who changed what, and when | [Logs and audit](logs-and-audit.md) |
 | Server logs | Read the MuServer log files from the browser | [Server logs](server-logs.md) |
+| Security | What the GameServer flagged as suspicious: kicks, floods, duplicate serials, cancelled trades, logins, trades | [Security](security.md) |
 | AI assistant | Ask questions about your files and settings | [AI assistant](ai-assistant.md) |
 
 ## First screen: picking a server
