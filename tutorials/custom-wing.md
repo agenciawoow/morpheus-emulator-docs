@@ -104,7 +104,7 @@ Apply with **Reload Custom** on the [Dashboard](../dashboard/services-and-reload
 {% step %}
 ### Add the model and textures
 
-Put `WingsMorpheus.bmd` in the client's `Data/Item/` folder and its textures in `Data/Item/Texture/`. These are game client files: add them to the client you distribute so they go out with your next update (the Client Hub has no upload for new 3D models; if support maintains your client package, send them the files).
+Put `WingsMorpheus.bmd` in the client's `Data/Item/` folder and its textures in `Data/Item/Texture/`. Upload them in [Client Files → Data files](../dashboard/client-hub/client-files.md#data-files): open `item`, drag `WingsMorpheus.bmd`; open `item/texture`, drag the textures; then publish the update.
 
 You do **not** need a `CustomItem.txt` row for a wing: `CustomWing.txt` on the client already registers the model.
 {% endstep %}

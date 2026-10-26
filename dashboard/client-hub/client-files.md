@@ -6,11 +6,12 @@ For details about each client file, see the MuServer reference: [Client files](.
 
 ## Page layout
 
-1. **File selector** at the top – pick which client file to edit with its visual editor.
-2. A yellow notice when files are pending: **N file(s) pending publication for this server. Review and publish.** (the link opens [Publish updates](publishing-updates.md)).
-3. The **visual editor** of the selected file.
-4. **Other files (download / upload)** – a table of client files without a visual editor.
-5. **Release history** – previous publications with **Version**, **When**, **By**, **Status**, **Files**, **Time** and **Details**.
+A yellow notice at the top appears when files are pending: **N file(s) pending publication for this server. Review and publish.** (the link opens [Publish updates](publishing-updates.md)). Below it, four tabs:
+
+1. **Editors** – pick a client file and edit it with its visual editor.
+2. **BMD files** – client files without a visual editor (download / upload).
+3. **Data files** – send models, textures and terrain attributes to the client's `Data` folder. See [Data files](#data-files).
+4. **History** – previous publications with **Version**, **When**, **By**, **Status**, **Files**, **Time** and **Details**.
 
 ## Files with a visual editor
 
@@ -113,6 +114,25 @@ Files without a visual editor are listed with their **Role in the game**:
 1. Click **Download**.
 2. Edit the file in your own tool.
 3. Click **Upload** to send it back. You'll see `uploaded (N B).` and the file joins the publish queue.
+
+## Data files
+
+Send `.bmd` (models), `.ozj` / `.ozt` / `.tga` (textures) and `.att` (terrain attributes) straight into the client's `Data` folder. They reach players on the next publication, on PC, Android and the web.
+
+1. Open the folder that will receive the files (for example `object1`, `item`, `player`). Use **New folder** for a folder that doesn't exist yet: it's created on the first upload.
+2. Drag the files onto the upload area, or click it to choose. Up to 25 MB per file. Names are converted to lowercase.
+3. If a file already exists, you are asked to confirm the replacement.
+4. Each file shows **New** or **Pending** until you [publish](publishing-updates.md). The pending list shows every Data file that goes out.
+
+The panel checks the format before saving: a `.ozj` that is really a PNG, or a `.bmd` without the `BMD` signature, is refused with the reason.
+
+**Undo** (the arrow on a pending file) brings back exactly the published file, or removes a new file. After publishing there is nothing to undo: send the previous file again instead.
+
+{% hint style="warning" %}
+**Replacing** an existing file takes effect as soon as you publish. A **new** file only shows up in game when something references it, for example a model registered in `CustomItem.txt` ([Client settings](client-settings.md)). Deleting a published file is not supported: players keep their copy.
+{% endhint %}
+
+The `local` and `ui` folders are managed by GetMainInfo and the UI Editor and are read-only here. Files with other extensions (`.map`, `.obj`, …) are not accepted.
 
 ## Release history
 

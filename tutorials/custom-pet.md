@@ -99,7 +99,7 @@ The client does not know the `PetItemOption.txt` bonuses. To show them, add tool
 
 Put `crystalfox.bmd` in the client's `Data/Item/` folder and its textures in `Data/Item/Texture/`. The model must contain the animations the movement style expects (copy the skeleton/animations of the pet whose movement you use).
 
-These are game client files: add them to the client you distribute so they go out with your next update. The Client Hub has no upload for new 3D models; if support maintains your client package, send them the files.
+Upload them in [Client Files → Data files](../dashboard/client-hub/client-files.md#data-files): open the folder, drag the `.bmd` and its textures, then publish the update.
 {% endstep %}
 
 {% step %}

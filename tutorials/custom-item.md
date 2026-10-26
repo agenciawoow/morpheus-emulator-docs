@@ -103,7 +103,7 @@ Every item is drawn from a `.bmd` model file plus the textures it references.
 
 For the example: `Data/Item/MorpheusBlade.bmd`, and its textures (the file names written inside the model, usually `.ozj`/`.ozt`/`.jpg`/`.tga`) in `Data/Item/Texture/`.
 
-These are game client files: add them to the client you distribute so they go out with your next client update. The Client Hub edits the client's text files and data tables but has no upload for new 3D models; if support maintains your client package, send them the files.
+Upload them in **Client Hub →** [Client Files → Data files](../dashboard/client-hub/client-files.md#data-files): open the folder, drag the `.bmd` and its textures, then publish the update.
 
 {% hint style="info" %}
 **Test the flow first, model later.** Until your own model is ready you can point the next step at a model that already ships with the client, for example `"absolute02_sword"`. Two items can use the same model file.

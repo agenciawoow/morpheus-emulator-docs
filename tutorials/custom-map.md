@@ -178,7 +178,7 @@ Monsters spawn only on the server that hosts the map. Apply with `/reload map`. 
 {% step %}
 ### Install the client world files
 
-Put `Data/World141/` and `Data/Object141/` in the game client, and optionally the minimap image `Data/Interface/HUD/NaviMap/Navimap141.ozt` and the title image (next step). These are game client files: add them to the client you distribute so they go out with your next client update. The Client Hub has no upload for new 3D files; if support maintains your client package, send them the folders.
+Put `Data/World141/` and `Data/Object141/` in the game client, and optionally the minimap image `Data/Interface/HUD/NaviMap/Navimap141.ozt` and the title image (next step). The `.att`, `.bmd` and texture files (`.ozj` / `.ozt` / `.tga`) can be uploaded in [Client Files → Data files](../dashboard/client-hub/client-files.md#data-files). The terrain `.map` and `.obj` files are not accepted there yet: add them to the client you distribute, or send them to support if they maintain your client package.
 {% endstep %}
 
 {% step %}
